@@ -42,8 +42,17 @@ class ScreensTest extends TestCase
             'board' => ['/board', 'Task Board'],
             'notifikasi' => ['/notifications', 'Notifications'],
             'tim' => ['/team', 'Team Settings'],
-            'pengaturan' => ['/settings', 'Team Settings'],
         ];
+    }
+
+    public function test_settings_redirects_to_team(): void
+    {
+        $this->seed(RolePermissionSeeder::class);
+
+        $member = User::factory()->create();
+        $member->assignRole('team_member');
+
+        $this->actingAs($member)->get('/settings')->assertRedirect('/team');
     }
 
     public function test_task_detail_mock_renders(): void

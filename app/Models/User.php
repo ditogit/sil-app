@@ -8,18 +8,35 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable([
+    'name', 'email', 'password', 'nip', 'position', 'work_unit_id',
+    'campus', 'avatar_url', 'status', 'two_factor_confirmed_at', 'last_login_at',
+])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, HasRoles, Notifiable;
+
+    /**
+     * RBAC role metadata keyed by Spatie role name.
+     *
+     * @var array<string, array{label: string, level: int, badge: string, icon: string}>
+     */
+    public const ROLE_META = [
+        'admin' => ['label' => 'Superadmin', 'level' => 0, 'badge' => 'bg-primary-container text-on-primary', 'icon' => 'shield-check'],
+        'project_manager' => ['label' => 'Lead Developer / PM', 'level' => 1, 'badge' => 'bg-secondary-fixed text-on-secondary-fixed', 'icon' => 'code-bracket'],
+        'team_member' => ['label' => 'Frontend & QA Engineer', 'level' => 2, 'badge' => 'bg-secondary-fixed-dim text-on-secondary-fixed-variant', 'icon' => 'globe-alt'],
+        'viewer' => ['label' => 'Faculty PIC / Viewer', 'level' => 3, 'badge' => 'bg-surface-container-high text-on-surface', 'icon' => 'eye'],
+        'none' => ['label' => 'No Role', 'level' => 99, 'badge' => 'bg-surface-variant text-on-surface-variant', 'icon' => 'user'],
+    ];
 
     public function canAccessPanel(Panel $panel): bool
     {
@@ -43,6 +60,8 @@ class User extends Authenticatable implements FilamentUser
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'two_factor_confirmed_at' => 'datetime',
+            'last_login_at' => 'datetime',
         ];
     }
 
@@ -80,5 +99,62 @@ class User extends Authenticatable implements FilamentUser
     public function attachments(): HasMany
     {
         return $this->hasMany(Attachment::class);
+    }
+
+    /** @return BelongsTo<WorkUnit, $this> */
+    public function workUnit(): BelongsTo
+    {
+        return $this->belongsTo(WorkUnit::class);
+    }
+
+    /** @return HasMany<AccessAuditLog> */
+    public function accessAuditLogs(): HasMany
+    {
+        return $this->hasMany(AccessAuditLog::class);
+    }
+
+    public function hasTwoFactor(): bool
+    {
+        return $this->two_factor_confirmed_at !== null;
+    }
+
+    public function isSuspended(): bool
+    {
+        return $this->status === 'suspended';
+    }
+
+    /**
+     * RBAC metadata for the user's primary role.
+     *
+     * @return array{name: string, label: string, level: int, badge: string, icon: string}
+     */
+    public function roleMeta(): array
+    {
+        $name = $this->roles->first()?->name;
+
+        return array_merge(['name' => $name ?? 'none'], self::ROLE_META[$name] ?? self::ROLE_META['none']);
+    }
+
+    public function roleLevel(): int
+    {
+        return $this->roleMeta()['level'];
+    }
+
+    /**
+     * Display status combining access status and 2FA enforcement.
+     *
+     * @return array{label: string, tone: string}
+     */
+    public function securityStatus(): array
+    {
+        if ($this->isSuspended()) {
+            return ['label' => 'Suspended', 'tone' => 'error'];
+        }
+
+        if ($this->status === 'pending_2fa' || ! $this->hasTwoFactor()) {
+            return ['label' => 'Pending 2FA', 'tone' => 'warning'];
+        }
+
+        return ['label' => '2FA Active', 'tone' => 'ok'];
     }
 }

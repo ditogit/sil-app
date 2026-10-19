@@ -10,6 +10,8 @@ use App\Livewire\Projects;
 use App\Livewire\ProjectWorkspace;
 use App\Livewire\Reports;
 use App\Livewire\TaskDetail;
+use App\Livewire\TeamSettings;
+use App\Models\AccessAuditLog;
 use App\Models\Attachment;
 use App\Models\Project;
 use App\Models\Task;
@@ -80,6 +82,32 @@ Route::middleware('auth')->group(function (): void {
         }, 'task-report-'.today()->toDateString().'.csv', ['Content-Type' => 'text/csv']);
     })->middleware('permission:export reports')->name('reports.export');
     Route::get('/notifications', NotificationCenter::class)->name('notifications');
-    Route::view('/team', 'screens.pengaturan_tim')->name('team');
-    Route::view('/settings', 'screens.pengaturan_tim')->name('settings');
+    Route::get('/team', TeamSettings::class)->name('team');
+    Route::redirect('/settings', '/team')->name('settings');
+    Route::get('/team/audit/export', function () {
+        abort_unless(
+            auth()->user()->can('manage users') || auth()->user()->can('manage roles'),
+            403
+        );
+
+        $logs = AccessAuditLog::with(['user', 'actor'])->latest()->cursor();
+
+        return response()->streamDownload(function () use ($logs): void {
+            $out = fopen('php://output', 'w');
+            fputcsv($out, ['Timestamp', 'Subject', 'Actor', 'Event', 'Description', 'IP Address'], ';');
+
+            foreach ($logs as $log) {
+                fputcsv($out, [
+                    $log->created_at->toDateTimeString(),
+                    $log->user?->name ?? '',
+                    $log->actor?->name ?? '',
+                    $log->event,
+                    $log->description ?? '',
+                    $log->ip_address ?? '',
+                ], ';');
+            }
+
+            fclose($out);
+        }, 'access-log-'.today()->toDateString().'.csv', ['Content-Type' => 'text/csv']);
+    })->name('team.audit.export');
 });
