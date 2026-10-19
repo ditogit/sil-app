@@ -65,10 +65,10 @@ class AppServiceProvider extends ServiceProvider
                     $navItem('projects.index', 'documents-folder', 'Projects', 'projects.*', $activeProjects ?: null),
                     $navItem('board', 'layouts-kanban', 'Task Board', 'board*'),
                 ],
-                'navSecondary' => [
-                    $navItem('reports', 'metrics-chart-bar', 'Reports & Analytics', 'reports*'),
+                'navSecondary' => array_values(array_filter([
+                    $user->can('view reports') ? $navItem('reports', 'metrics-chart-bar', 'Reports & Analytics', 'reports*') : null,
                     $navItem('notifications', 'messaging-message-circle', 'Notifications', 'notifications*', $unread ?: null, 'red'),
-                ],
+                ])),
                 'navAdmin' => [
                     $navItem('team', 'identity-users', 'Team Members', 'team*'),
                     $navItem('settings', 'tools-settings', 'Settings', 'settings*'),

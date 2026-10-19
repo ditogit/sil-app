@@ -90,6 +90,7 @@
                 $n = count($labels);
                 $gw = $n > 0 ? 700 / $n : 0;
                 $bw = min(14, $gw * 0.32);
+                $tickStep = (int) max(1, ceil($n / 9));
             @endphp
             <div class="w-full overflow-x-auto">
                 <svg viewBox="0 0 760 {{ 40 + 170 }}" class="w-full min-w-[560px] h-64" preserveAspectRatio="xMidYMid meet">
@@ -105,8 +106,8 @@
                         @endphp
                         <rect x="{{ $x }}" y="{{ 178 - $h1 }}" width="{{ $bw }}" height="{{ max($h1, 2) }}" rx="2" fill="#17365d"><title>{{ $day }}: {{ $created[$i] }} created</title></rect>
                         <rect x="{{ $x + $bw + 2 }}" y="{{ 178 - $h2 }}" width="{{ $bw }}" height="{{ max($h2, 2) }}" rx="2" fill="#0051d5"><title>{{ $day }}: {{ $completed[$i] }} completed</title></rect>
-                        @if ($n <= 31 || $i % (int) ceil($n / 15) === 0)
-                            <text x="{{ $x + $bw }}" y="196" text-anchor="middle" font-size="10" fill="#74777F" font-family="Inter">{{ $day }}</text>
+                        @if (($n - 1 - $i) % $tickStep === 0)
+                            <text x="{{ $x + $bw }}" y="196" text-anchor="middle" font-size="10" fill="#49454F" font-family="Inter">{{ $day }}</text>
                         @endif
                     @endforeach
                 </svg>
