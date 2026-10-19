@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"background":"#f8f9ff","surface-container-lowest":"#ffffff","error-container":"#ffdad6","surface-container-low":"#eff4ff","secondary":"#0051d5","secondary-container":"#316bf3","primary-fixed":"#d5e3ff","surface":"#f8f9ff","error":"#ba1a1a","on-tertiary-fixed-variant":"#005320","on-background":"#0b1c30","secondary-fixed-dim":"#b4c5ff","on-secondary-fixed-variant":"#003ea8","inverse-primary":"#acc8f7","on-primary-fixed":"#001c3b","secondary-fixed":"#dbe1ff","primary-fixed-dim":"#acc8f7","on-surface":"#0b1c30","on-tertiary-fixed":"#002109","tertiary":"#00270b","on-primary":"#ffffff","primary-container":"#17365d","on-tertiary-container":"#32b559","outline":"#74777f","surface-tint":"#435f89","surface-container":"#e5eeff","on-primary-container":"#84a0cd","surface-variant":"#d3e4fe","tertiary-fixed-dim":"#62df7d","primary":"#002043","inverse-on-surface":"#eaf1ff","on-error":"#ffffff","on-primary-fixed-variant":"#2b486f","tertiary-container":"#003f17","surface-container-highest":"#d3e4fe","surface-bright":"#f8f9ff","on-secondary-container":"#fefcff","outline-variant":"#c4c6cf","tertiary-fixed":"#7ffc97","on-secondary-fixed":"#00174b","on-secondary":"#ffffff","surface-dim":"#cbdbf5","on-surface-variant":"#43474e","on-tertiary":"#ffffff","on-error-container":"#93000a","surface-container-high":"#dce9ff","inverse-surface":"#213145"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1rem","space-sm":"0.5rem","margin":"1.5rem","margin-compact":"1rem","space-md":"0.75rem","space-2xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","space-xs":"0.25rem","space-xxs":"0.125rem","space-xl":"1.5rem"},"fontFamily":{"headline-lg":["Inter"],"label-default":["Inter"],"headline-md":["Inter"],"title-sm":["Inter"],"body-sm":["Inter"],"body-medium":["Inter"],"code-sm":["Inter"],"headline-xl":["Inter"],"label-uppercase":["Inter"],"body-default":["Inter"]},"fontSize":{"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-default":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"500"}],"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"500"}],"headline-xl":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-uppercase":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"400"}]}}}}</script></head><body class="bg-surface text-on-surface font-body-default text-body-default"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md flex items-center gap-space-md"><img alt="UPN Task Manager Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4eDKzDHVL5Y1z0yEREmQilawO_-DQwJarBcp5Y09QX7xusuC0Eha0zh3NMcQM__7QxB0St3pR0A2JONsGxp79oTl2dxXTsB-7dDSaq066NSM-K-CcM1zg968BHTmb31SxrEdYwfV1J1RUHjAwqdpwYzcZQNgRbyaJUtcGr-gcDRtsm_7U5hlVTAgPbg__iN43M297390sWcctmSOkqUEkFo8RWs5j_4SvjNUgV2zD_p6_q7KwcJY_A"/><div class="flex flex-col min-w-0 leading-none"><span class="font-title-sm text-title-sm text-on-surface truncate tracking-tight">UPN Veteran</span><span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase tracking-wider mt-0.5">Task Management</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-md py-space-sm rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><span class="material-symbols-outlined text-secondary text-[18px]">corporate_fare</span><span class="font-label-default text-label-default font-medium truncate">Sistem Informasi Kampus</span></div><span class="material-symbols-outlined text-outline text-[16px]">unfold_more</span></div></div><div class="px-space-lg pt-space-md pb-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Menu Utama</span></div><nav class="flex flex-col gap-0.5 px-space-md" data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-medium text-body-medium">Dashboard</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="tugas-saya" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">check_circle</span><span class="font-body-medium text-body-medium">Tugas Saya</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">8</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="proyek" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">folder</span><span class="font-body-medium text-body-medium">Proyek</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">5</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="task-board" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">view_kanban</span><span class="font-body-medium text-body-medium">Task Board</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="laporan-dan-analitik" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-medium text-body-medium">Laporan &amp; Analitik</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="notifikasi" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-body-medium text-body-medium">Notifikasi</span></div><span class="px-1.5 py-0.5 rounded-full bg-error text-on-error font-label-default text-label-default leading-none">3</span></a></nav><div class="px-space-lg pt-space-lg pb-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Administrasi</span></div><nav class="flex flex-col gap-0.5 px-space-md" data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="anggota-tim" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-body-medium text-body-medium">Anggota Tim</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pengaturan" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-medium text-body-medium">Pengaturan</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] m-space-sm rounded-xl"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg"/><div class="flex flex-col min-w-0 leading-tight"><span class="font-body-medium text-body-medium text-on-surface font-semibold truncate">Achmad Fauzi</span><span class="font-label-uppercase text-label-uppercase text-on-surface-variant truncate">Biro Sistem Informasi</span></div></div><button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>Workspace</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-medium">Dashboard Utama</span></div><div class="relative ml-space-xl w-80"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-xl font-body-sm text-body-sm outline-none focus:bg-surface-container transition-all" placeholder="Cari tugas, proyek, atau dokumen... (Ctrl + K)" type="text"/></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs h-9 px-space-md bg-secondary text-on-secondary rounded-xl font-body-medium text-body-medium hover:bg-secondary-container transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.05)]" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>Buat Tugas</span></button><div class="relative flex items-center justify-center"><button class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg"/><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Project Banner & Overview Scaffolding -->
+<section class="p-space-xl pb-space-lg flex flex-col gap-space-lg bg-surface-container-lowest shadow-sm">
+<!-- Breadcrumb & Context Flag -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Workspace</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Proyek BSI</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-medium text-secondary">BSI-SIK3</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-default text-label-default bg-surface-container-low text-on-tertiary-fixed-variant font-semibold">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+          Aktif • On Track
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-label-default text-label-default bg-surface-container text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[14px]">school</span>
+          Semester Ganjil 2024/2025
+        </span>
+</div>
+</div>
+<!-- Main Project Identity & Actions Header -->
+<div class="flex flex-col xl:flex-row xl:items-start justify-between gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-4xl min-w-0">
+<div class="flex items-center gap-space-md">
+<div class="w-11 h-11 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[24px]">corporate_fare</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Pengembangan Sistem Informasi Kampus v3.0</h1>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">BSI-SIK3</span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant mt-1 leading-relaxed">
+              Modernisasi arsitektur core backend, integrasi portal KRS mahasiswa baru, presensi perkuliahan berbasis QR terenkripsi, dan sinkronisasi Single Sign-On (SSO) Google Workspace UPN "Veteran" Yogyakarta.
+            </p>
+</div>
+</div>
+<!-- Project Meta Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md mt-space-md pt-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">badge</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Project Manager</span>
+<span class="font-body-medium text-body-medium text-on-surface truncate">Achmad Fauzi, S.Kom., M.Eng.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">event_available</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Target Rilis Akhir</span>
+<span class="font-body-medium text-body-medium text-on-surface truncate">15 Des 2024 <span class="font-label-default text-label-default text-secondary font-semibold">(Sisa 52 Hari)</span></span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-space-sm min-w-0">
+<div class="flex flex-col min-w-0">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Tim Pengembang (6 Aktif)</span>
+<div class="flex items-center -space-x-2 mt-1">
+<img class="w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest" data-alt="Portrait photo of project manager Achmad Fauzi in professional campus navy attire with UPN office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIEZCXCsDDDHu_CTmG2SS8iv1HLtcudg6Iju2QHUTGSOW8EI9pVbilXGtbHt0TQDv-iaC5G2vDwCYmtrbQXbkVzMbzNtmSQ-MW47o_1_WynaYzn35bkGDs_H8MQdp9yOtUf1wdcA7IHRtxi9rvo8c_9kHtkvixArfutJTbRWsvnb14agXt5sWYJstWe5c_JRiDsThXED2Gktd1pdawxh0hDsZrcAbGjA5g3OZcJkqDgm6rTU7Nr_r9Bg" title="Achmad Fauzi (Lead)"/>
+<img class="w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest" data-alt="Portrait of senior female software developer Siti Nurhaliza wearing hijab in modern technology center office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUjgvStdn0WumKjHru7XJ_KiRdiMW1rkddiwrw7QKC04PsbiU-Qt4w4-nLFA0vR5SSofOKUmbhJxwqH5NN5ys6B4zPOtp_9f_Mx6ohOkODyhkYU562DggIb1A4a6liNQkEjOO4Y8rOq8rofgF4E-TELXGei8tvmLvBIoy8i3qheBRRQ6upfXFeY8PPu3OUbNp2pFsFgyii96PUKvy9yuTNuss6Wwud2paIrG23TvSUVy7ExcMo3SzyDg" title="Siti Nurhaliza (Backend Lead)"/>
+<img class="w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest" data-alt="Portrait of Indonesian male cloud devops engineer Dimas Arya smiling in computer server room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCru1zRDpVukVptyTJPG7mGnMGQztp3WenRoxOvkJiz1YWAfcGIR3wO-0C_GuXudp8zKDOQzMzVAravPWocsFMIdtY4tHouv7AirL5oEs062Q8dAHa7HBUJyj5sWvCeuotOFC6kyvDd59syxz6JgNsC-DeDweKAvf_Dwb44LCCH1swxS4C1sCtRzmnRTe5K8UkETAoQfTHUsy4-TvyjQcYcQ-z6cynDw5KVi9TJyOznGVSnXFtdOFS0ug" title="Dimas Arya (DevOps)"/>
+<img class="w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest" data-alt="Portrait of Indonesian male QA software engineer Budi Santoso sitting with laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcKxx4s3m75tUkAlRIDtDBFTjr6M7j2y20hH4NKJWIpzsPkQD4bEvxExv_aSCRvsidT5K6WaesAam_OO0B5UswLPAPZq1EbvTP5v31wvVyuUbG4I-et8c4S44gCA5vHh1QdllXU14Ma6rxyqt8PDOeiGRYtQ1r19_SfYFlmk8IW_kXOGmH_3spYHGABZ9dqCRNCCAytQLi2_6nh4eEQxrIKbFXE4sDM723BHdA2Q8rpfQ_XQCwJRw_jg" title="Budi Santoso (QA)"/>
+<img class="w-7 h-7 rounded-full object-cover ring-2 ring-surface-container-lowest" data-alt="Portrait of Indonesian female UI UX designer Maya Anggraini in creative tech workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQbE5J8gNUB8F2N94tCG2E3gRRlANefdloLhuS0hIWiARH2HdIxApaGcE150AfRDiAfEY0vkXCb11y_ZrmQGcQ4CCrL2WqDZITOtpyEd-kw1_gSbuGDebMLjV0GecOC0gCRYVTr8JO5rZA80i8MHxEdJuVNYSWEnuquRf-ZhT3ufA31w44mnzohevuAaysu6WAAmgQPCeAOau8vM_A3RT1jojBWz4TaQHNFmoGs1Uhip0EL39sEc3gLQ" title="Maya Anggraini (UI/UX)"/>
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-fixed flex items-center justify-center font-label-default text-label-default font-semibold ring-2 ring-surface-container-lowest" title="Rizky Pratama (Frontend)">+1</div>
+</div>
+</div>
+<button class="p-1 text-on-surface-variant hover:text-secondary rounded-lg transition-colors" title="Kelola Anggota Proyek" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-wrap xl:flex-col gap-space-sm items-end shrink-0">
+<button class="flex items-center gap-space-xs h-9 px-space-md bg-secondary text-on-secondary rounded-xl font-body-medium text-body-medium hover:bg-secondary-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>Tambah Task Baru</span>
+</button>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs h-9 px-space-md bg-surface-container-low text-on-surface rounded-xl font-body-medium text-body-medium hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Bagikan</span>
+</button>
+<button class="flex items-center justify-center w-9 h-9 bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors" title="Pengaturan Proyek" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="flex items-center justify-center w-9 h-9 bg-surface-container-low text-error hover:bg-error-container rounded-xl transition-colors" title="Opsi Arsip Proyek" type="button">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Project Tabs Navigation -->
+<div class="flex items-center gap-space-xs overflow-x-auto pt-space-xs scrollbar-none">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-primary text-on-primary font-body-medium text-body-medium shadow-sm transition-all whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+<span>Ringkasan &amp; Progres</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">view_kanban</span>
+<span>Task Board</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+<span>Daftar Tugas</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface font-label-default text-label-default rounded-full">52</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+<span>Milestone &amp; Roadmap</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+<span>Dokumen &amp; Lampiran</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface font-label-default text-label-default rounded-full">14</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Log Aktivitas Tim</span>
+</button>
+</div>
+</section>
+<!-- Workspace Primary Canvas Content -->
+<div class="p-space-xl flex flex-col gap-space-xl">
+<!-- 4 High-Density KPI Metric Panels -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-lg">
+<!-- KPI 1: Overall Completion -->
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Tingkat Penyelesaian</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">donut_large</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">74%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">38 dari 52 task tuntas</span>
+</div>
+<!-- Progress Bar Visual -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 74%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-default text-label-default text-on-surface-variant">
+<span>Target mingguan: 70%</span>
+<span class="text-on-tertiary-fixed-variant font-medium">+4% lebih cepat</span>
+</div>
+</div>
+<!-- KPI 2: Total Volume Breakdown -->
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Distribusi Beban Kerja</span>
+<span class="material-symbols-outlined text-primary text-[20px]">stacked_bar_chart</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">52</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">total entitas task</span>
+</div>
+<!-- Segmented Mini Progress Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex gap-0.5">
+<div class="bg-on-tertiary-container h-full" style="width: 73%;" title="38 Selesai"></div>
+<div class="bg-secondary-container h-full" style="width: 21%;" title="11 In Progress / Review"></div>
+<div class="bg-outline-variant h-full" style="width: 6%;" title="3 Backlog"></div>
+</div>
+<div class="flex items-center justify-between font-label-default text-label-default text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span> 38 Done</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-container"></span> 11 Berjalan</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-outline-variant"></span> 3 Rencana</span>
+</div>
+</div>
+<!-- KPI 3: Overdue and Attention Required -->
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Perhatian &amp; Hambatan</span>
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-error font-bold tracking-tight">2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">task tertunda / blocker</span>
+</div>
+<div class="flex items-center gap-space-xs p-space-xs px-space-sm bg-error-container rounded-lg">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0">priority_high</span>
+<span class="font-label-default text-label-default text-on-error-container font-semibold truncate">API SIAKAD &amp; Gateway Uji Beban</span>
+</div>
+<div class="flex justify-between items-center font-label-default text-label-default text-on-surface-variant">
+<span>Eskalasi: Biro Umum &amp; Jaringan</span>
+<span class="text-error font-medium">Batas: Hari ini</span>
+</div>
+</div>
+<!-- KPI 4: Sprint Tracker -->
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Sprint Saat Ini</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">pace</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Sprint 4 <span class="font-headline-md text-headline-md font-normal text-on-surface-variant">/ 6</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 66%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-default text-label-default text-on-surface-variant">
+<span>Siklus: 21 Okt - 03 Nov</span>
+<span class="font-medium text-on-surface">Sisa 9 Hari</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric 2-Column Core Architecture -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT WORKSPACE COLUMN (~65% width = 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- Milestone & Strategic Roadmap Card -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">flag</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Milestone &amp; Roadmap Pengiriman</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tahapan esensial pencapaian arsitektur SI Kampus v3.0 UPN Veteran</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-default text-label-default" type="button">
+<span>Detail Timeline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Vertical Interactive Roadmap Pipeline -->
+<div class="relative flex flex-col gap-space-lg pl-3 ml-2 border-l-2 border-surface-container">
+<!-- Milestone 1 -->
+<div class="relative flex flex-col gap-1 pl-space-lg">
+<span class="absolute -left-[23px] top-1 w-6 h-6 rounded-full bg-on-tertiary-container text-on-tertiary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">1. Arsitektur Database &amp; Migrasi Skema PostgreSQL 16</span>
+<span class="font-label-default text-label-default px-2 py-0.5 rounded bg-surface-container-low text-on-tertiary-fixed-variant font-semibold">Selesai 100% • 15 Okt 2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Normalisasi relasi data mahasiswa 6 fakultas, partisi tabel log KRS 10 tahun terakhir, dan benchmarking query indexing.</p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative flex flex-col gap-1 pl-space-lg">
+<span class="absolute -left-[23px] top-1 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+</span>
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">2. Integrasi API SSO SIAKAD &amp; Google Workspace</span>
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container text-secondary font-semibold">Dalam Review</span>
+</div>
+<span class="font-label-default text-label-default text-on-surface-variant">Target: 28 Okt 2024 (80%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sinkronisasi OAuth2 multi-domain (@upnyk.ac.id), manajemen hak akses dosen wali, dan otentikasi role-based access control (RBAC).</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="relative flex flex-col gap-1 pl-space-lg">
+<span class="absolute -left-[23px] top-1 w-6 h-6 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</span>
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">3. Modul Evaluasi Dosen oleh Mahasiswa (EDOM) &amp; Presensi</span>
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container text-on-surface-variant font-semibold">In Progress</span>
+</div>
+<span class="font-label-default text-label-default text-on-surface-variant">Target: 10 Nov 2024 (45%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Perancangan kuesioner otomatis sebelum pengisian KRS semester baru dan generator QR presensi terikat koordinat GPS ruang kuliah.</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Milestone 4 -->
+<div class="relative flex flex-col gap-1 pl-space-lg">
+<span class="absolute -left-[23px] top-1 w-6 h-6 rounded-full bg-surface-container text-outline flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+</span>
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold">4. Uji Beban KRS 5.000 Mahasiswa &amp; Hardening Security</span>
+<span class="font-label-default text-label-default text-outline">Target: 25 Nov 2024 (20%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Simulasi konkurensi traffic server menggunakan Locust, mitigasi rate-limit DDOS, dan audit penetrasi oleh tim Siber UPN.</p>
+</div>
+<!-- Milestone 5 -->
+<div class="relative flex flex-col gap-1 pl-space-lg">
+<span class="absolute -left-[23px] top-1 w-6 h-6 rounded-full bg-surface-container text-outline flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+</span>
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">5. Deployment Staging &amp; Serah Terima Rektorat</span>
+<span class="font-label-default text-label-default text-outline">Target: 15 Des 2024 (Rencana)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sosialisasi operator fakultas, serah terima kode sumber ke Kepala BSI, dan rilis stabil produksi.</p>
+</div>
+</div>
+</div>
+<!-- Critical Tasks Currently in Flight -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">assignment_late</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Task Kritis Sedang Berjalan</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tugas bernilai tinggi yang menuntut pemantauan harian manajer proyek</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface font-label-default text-label-default hover:bg-surface-container" type="button">Semua Task</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant font-label-default text-label-default hover:bg-surface-container-low" type="button">Hanya Tim Saya</button>
+</div>
+</div>
+<!-- Enterprise Dense Table -->
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-outline font-label-uppercase text-label-uppercase">
+<tr>
+<th class="py-2.5 px-space-md font-semibold">Task ID &amp; Uraian Pekerjaan</th>
+<th class="py-2.5 px-space-md font-semibold">Prioritas</th>
+<th class="py-2.5 px-space-md font-semibold">Penanggung Jawab</th>
+<th class="py-2.5 px-space-md font-semibold">Tenggat</th>
+<th class="py-2.5 px-space-md font-semibold">Status Alur</th>
+<th class="py-2.5 px-space-md text-right font-semibold">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Task 1 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">error_outline</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold hover:text-secondary cursor-pointer">BSI-402: Patch Kebocoran Memori Worker Redis SSO</span>
+<span class="font-label-default text-label-default text-on-surface-variant">Komponen Auth Gateway • Modul Inti</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-error-container text-on-error-container font-semibold">Urgent</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait photo of Dimas Arya, DevOps systems engineer with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNx4eIJLsXZxLFt75L6YFYhfMe_gzaTqjFUvarJIV9ed30VREDHRoxwy9qJOwXqPc2OYFnqIvuI-Sq7Nqol-HR6s8WeOm1w7r9ifISwRjMyV_vmx1QOCxMZdvk6RMxJyr_kNU8PMABOWMbZ8KrUA-DsYKdn50WL1Qms7K38b78Smaq7K2XGfAA-1UYOJIT7oc8XxaLFlEHJ1kJ5kHMIyZ5XAA5gIdkM72DaSa11bKBleyvMLu3qx0GNA"/>
+<span class="font-body-medium text-body-medium text-on-surface">Dimas Arya</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="font-label-default text-label-default text-error font-semibold">Hari ini, 17:00</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container-high text-on-surface font-semibold">In Progress</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 text-on-surface-variant hover:text-secondary rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Task 2 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">radio_button_checked</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold hover:text-secondary cursor-pointer">INFRA-109: Penyesuaian Cluster Kubernetes Sim-Kampus</span>
+<span class="font-label-default text-label-default text-on-surface-variant">Infrastruktur Server Kampus Tambakbayan</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container-high text-on-surface font-semibold">High</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of senior female backend developer Siti Nurhaliza with campus ID lanyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe5YqR84fBQheMfzFjA9HZfWAKKEtEhTFMk5WE1YWzRxfPO1co60TEEJvCI-PFbl967phZi93HX5R_eqi_2q4q0AYfG3DunRyoHHf2Af2-MN31l1CPRCUNpUkMqhxuuqnrzYj2GyQtDs5PVEP-iBS4CDI6c8a7Mzr1eWWVXsoAQhCF2jFJG2Tk8bJhe9QsgJxwLOgQM-7eFvv8BBryGSqBSLqiguDW62qjgPyM6L7ZyQXRg6eqhLdPog"/>
+<span class="font-body-medium text-body-medium text-on-surface">Siti Nurhaliza</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="font-label-default text-label-default text-on-surface-variant">25 Okt 2024</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container text-secondary font-semibold">In Review</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 text-on-surface-variant hover:text-secondary rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Task 3 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">radio_button_checked</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold hover:text-secondary cursor-pointer">BSI-415: Desain Responsif Form KRS Mahasiswa Tingkat Akhir</span>
+<span class="font-label-default text-label-default text-on-surface-variant">UI Client Web Portal • Tailwind Layout</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container text-on-surface-variant font-medium">Medium</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait photo of young Indonesian UI developer Rizky Pratama" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtMWSnLNMIH9pEm4qvTNZizptfr_Ow6khTpYmvfzsJxEMk3PNwWd-Jkzu41a0VKrGrWaQ-kSj8zSpqpdGOcDMpgjM5CScI1ly6VH1xBGM-puD7yOvXuey4ZvARcUGlIwBIUg2TAGceCvgQLwBZZbZhe2mHcn-SVuB-QyCz-UndkHlxhyD9HQfDEpIG-fWsghAGwjgwU4Er6wTxm6bwbTRVkHkq6qNPwJc6QRAw3pvE7557JcgrSOTBtg"/>
+<span class="font-body-medium text-body-medium text-on-surface">Rizky Pratama</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="font-label-default text-label-default text-on-surface-variant">27 Okt 2024</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container-high text-on-surface font-semibold">In Progress</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 text-on-surface-variant hover:text-secondary rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Task 4 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold hover:text-secondary cursor-pointer">BSI-399: Otomasi Pengujian Unit Test Formula IPK &amp; SKS</span>
+<span class="font-label-default text-label-default text-on-surface-variant">Quality Assurance Suite • Coverage 94%</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container-high text-on-surface font-semibold">High</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-xs">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of Budi Santoso Indonesian Software QA specialist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcisqTTXWsgZBzOHmIikXOKMJUVu_PwULeX0rURosltHdj5lcZ1x94vkfb_O_BVF8gc_DbLrT16NqvRBr2pAIsLyopQbxTnFu6PTt5J6a4p51-MXUybHtn0Ngmc2pms0JCUFaEPIQ_oUUfkwZkBtlZQxg7SJihGWQicQqEpDN8YO1_1S44g3fYK6YOISSm-I7B9mYALCV3QWz55i0ApW4tSz0bUk8CgrSxuWFhrsk2CRKNo1HGZn8KIg"/>
+<span class="font-body-medium text-body-medium text-on-surface">Budi Santoso</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="font-label-default text-label-default text-on-tertiary-fixed-variant font-medium">Selesai Kemarin</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-default text-label-default bg-surface-container-low text-on-tertiary-fixed-variant font-semibold">Done</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 text-on-surface-variant hover:text-secondary rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT CONTEXT & COLLABORATION COLUMN (~35% width = 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-xl min-w-0">
+<!-- Team Workload Distribution -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">person_celebrate</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Beban Kerja Tim</h3>
+</div>
+<span class="font-label-default text-label-default text-outline">Kapasitas Sprint</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Member 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait of Dimas Arya DevOps specialist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACZDCX6XD3PtLk_VvTM9GD_oMth-NLriHyYP_MpfFxKKO4tmIHL0EOikwpw-l0-h-CmO9UNNEbP62dx_uT3bMU3mITTsA1nA-316b5KVWQUV00Fv6R6bsYai-MrjdKlx9VP4A_zijn6gGARVJgLrhLUFA1kDsVe4jOB4pObUWR4DyNU4wnJhy4sIY1rSkxr6nLyrmKLaz3Vh4JtJZnhuNqSV2Hkn8nYpFTxQiT-iurJGzSJKjbHvd1rg"/>
+<span class="font-medium text-on-surface truncate">Dimas Arya (DevOps)</span>
+</div>
+<span class="font-label-default text-label-default font-semibold text-error">7 Task (Penuh)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 95%;"></div>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait photo of Siti Nurhaliza backend lead engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFoQPyUd5SyVYErw6keoKAfwCCozntsnUTmNs9R_PsS34aJBibcv-GQZ82o3mllxH6ssklJy-UbIa7ofn55tZ04MudaERFbhnYE9zsziv2BL4iUb0yTftgwnAv71caYRjvUlYqJk1WMo0zUsLaJLZD_THZ80eZy41R5xIYkoZ5dn1cb2BihjtULWltjtHAR_29DfzLwZRrgTtTLyxDKKx-A_YNGN03CTBWCFQxdhxDQfzJN5ghvfk1TQ"/>
+<span class="font-medium text-on-surface truncate">Siti Nurhaliza (Backend)</span>
+</div>
+<span class="font-label-default text-label-default font-semibold text-secondary">6 Task (85%)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait of Rizky Pratama frontend engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT1aILOGkoXTQn4E_YNMPGH968MRsj83HjiU7zuFlHoCb88g9HOmgyAbH9D38IxrfhEYwLJzbky9UiAYCwYJBkj8GPjq9OnI4Pg8TJ4LKfeQXFP_yP759eId0va3X6D50ze_qrOEkTEfDF3CluEmS_rvhCRG3T-WkCimC23JkOoqEgragNOnutRfzntqRRABUIQp1nxaoDLYpqYBWJpuAU9n1-kHUD3xNLb-0LZj4IjZHIUZS7rgOZNw"/>
+<span class="font-medium text-on-surface truncate">Rizky Pratama (Frontend)</span>
+</div>
+<span class="font-label-default text-label-default font-semibold text-on-surface-variant">5 Task (70%)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 70%;"></div>
+</div>
+</div>
+<!-- Member 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait photo of Budi Santoso QA engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxJJK0X86scFMIipqcAP2Uu_mgkNr0TVxB3CAqxTHapKCN9U3iHEgeLRPXxbokBzYd24lJXl8RplcW44Ew2PUDs8OK_cJqry0YRxijvUpKOtdKEc01DjPtiqTCyCGbMe2Xiw6jd7HJEgkuXCNNb4Kgoo2KEBhDFYUXWggFIqvz8u-ugZl6U6y72nuE5g9VvlpB5XD3UIi_UimjU4Y7WKMBrfVthOM2kR_wwsf4cnASuntqJd2GVN-B_Q"/>
+<span class="font-medium text-on-surface truncate">Budi Santoso (QA)</span>
+</div>
+<span class="font-label-default text-label-default font-semibold text-on-tertiary-fixed-variant">3 Task (Optimal)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Project Activity Feed -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">dynamic_feed</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Aktivitas Terkini</h3>
+</div>
+<button class="font-label-default text-label-default text-secondary hover:underline" type="button">Semua Log</button>
+</div>
+<div class="flex flex-col gap-space-md relative pl-3 border-l border-surface-container ml-2">
+<!-- Event 1 -->
+<div class="relative flex flex-col gap-0.5 pl-space-md">
+<span class="absolute -left-[17px] top-1 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+<span class="text-secondary font-semibold">Siti Nurhaliza</span> melakukan merge PR #142: <code>feat/sso-oauth2-callback</code>
+</span>
+<span class="font-label-default text-label-default text-outline">12 menit yang lalu</span>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col gap-0.5 pl-space-md">
+<span class="absolute -left-[17px] top-1 w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+<span class="text-primary font-semibold">Dimas Arya</span> memperbarui sertifikat wildcard SSL <code>*.upnyk.ac.id</code>
+</span>
+<span class="font-label-default text-label-default text-outline">1 jam yang lalu</span>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col gap-0.5 pl-space-md">
+<span class="absolute -left-[17px] top-1 w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+<span class="font-semibold text-on-surface">Achmad Fauzi</span> menyetujui Milestone 1: Arsitektur Database
+              </span>
+<span class="font-label-default text-label-default text-outline">Kemarin, 16:40 WIB</span>
+</div>
+<!-- Event 4 -->
+<div class="relative flex flex-col gap-0.5 pl-space-md">
+<span class="absolute -left-[17px] top-1 w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+<span class="text-secondary font-semibold">Maya Anggraini</span> memperbarui prototype Figma: Form Validasi Nilai SKS
+              </span>
+<span class="font-label-default text-label-default text-outline">Kemarin, 14:15 WIB</span>
+</div>
+</div>
+</div>
+<!-- Project Quick Access Resources -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">folder_special</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Tautan &amp; Sumber Daya Proyek</h3>
+</div>
+<div class="flex flex-col gap-space-xs">
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">GitLab Internal UPN Veteran</span>
+<span class="font-label-default text-label-default text-outline">repo.upnyk.ac.id/bsi/si-kampus-v3</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Dokumen Spesifikasi SRS v3.0</span>
+<span class="font-label-default text-label-default text-outline">PDF • Disahkan BSI &amp; WR 1</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+</div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Design System &amp; UI Kit Kampus</span>
+<span class="font-label-default text-label-default text-outline">Figma Workspace BSI</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-secondary group-hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">dns</span>
+</div>
+<div class="flex flex-col min-w-0 leading-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Server Lingkungan Staging</span>
+<span class="font-label-default text-label-default text-outline">staging-simkampus.upnyk.ac.id</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

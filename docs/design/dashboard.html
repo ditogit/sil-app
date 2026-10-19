@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { "darkMode": "class", "theme": { "extend": { "colors": { "background": "#f8f9ff", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "surface-container-low": "#eff4ff", "secondary": "#0051d5", "secondary-container": "#316bf3", "primary-fixed": "#d5e3ff", "surface": "#f8f9ff", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#005320", "on-background": "#0b1c30", "secondary-fixed-dim": "#b4c5ff", "on-secondary-fixed-variant": "#003ea8", "inverse-primary": "#acc8f7", "on-primary-fixed": "#001c3b", "secondary-fixed": "#dbe1ff", "primary-fixed-dim": "#acc8f7", "on-surface": "#0b1c30", "on-tertiary-fixed": "#002109", "tertiary": "#00270b", "on-primary": "#ffffff", "primary-container": "#17365d", "on-tertiary-container": "#32b559", "outline": "#74777f", "surface-tint": "#435f89", "surface-container": "#e5eeff", "on-primary-container": "#84a0cd", "surface-variant": "#d3e4fe", "tertiary-fixed-dim": "#62df7d", "primary": "#002043", "inverse-on-surface": "#eaf1ff", "on-error": "#ffffff", "on-primary-fixed-variant": "#2b486f", "tertiary-container": "#003f17", "surface-container-highest": "#d3e4fe", "surface-bright": "#f8f9ff", "on-secondary-container": "#fefcff", "outline-variant": "#c4c6cf", "tertiary-fixed": "#7ffc97", "on-secondary-fixed": "#00174b", "on-secondary": "#ffffff", "surface-dim": "#cbdbf5", "on-surface-variant": "#43474e", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "surface-container-high": "#dce9ff", "inverse-surface": "#213145" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1rem", "space-sm": "0.5rem", "margin": "1.5rem", "margin-compact": "1rem", "space-md": "0.75rem", "space-2xl": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "space-xs": "0.25rem", "space-xxs": "0.125rem", "space-xl": "1.5rem" }, "fontFamily": { "headline-lg": ["Inter"], "label-default": ["Inter"], "headline-md": ["Inter"], "title-sm": ["Inter"], "body-sm": ["Inter"], "body-medium": ["Inter"], "code-sm": ["Inter"], "headline-xl": ["Inter"], "label-uppercase": ["Inter"], "body-default": ["Inter"] }, "fontSize": { "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-default": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "title-sm": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "code-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "500" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-uppercase": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }] } } } }</script>
+</head>
+
+<body class="bg-surface text-on-surface font-body-default text-body-default">
+    <aside
+        class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none">
+        <div class="flex flex-col">
+            <div class="px-space-lg pt-space-lg pb-space-md flex items-center gap-space-md"><img
+                    alt="UPN Task Manager Logo" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4eDKzDHVL5Y1z0yEREmQilawO_-DQwJarBcp5Y09QX7xusuC0Eha0zh3NMcQM__7QxB0St3pR0A2JONsGxp79oTl2dxXTsB-7dDSaq066NSM-K-CcM1zg968BHTmb31SxrEdYwfV1J1RUHjAwqdpwYzcZQNgRbyaJUtcGr-gcDRtsm_7U5hlVTAgPbg__iN43M297390sWcctmSOkqUEkFo8RWs5j_4SvjNUgV2zD_p6_q7KwcJY_A" />
+                <div class="flex flex-col min-w-0 leading-none"><span
+                        class="font-title-sm text-title-sm text-on-surface truncate tracking-tight">UPN
+                        Veteran</span><span
+                        class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase tracking-wider mt-0.5">Task
+                        Management</span></div>
+            </div>
+            <div class="px-space-md py-space-xs">
+                <div
+                    class="flex items-center justify-between px-space-md py-space-sm rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer">
+                    <div class="flex items-center gap-space-sm min-w-0"><span
+                            class="material-symbols-outlined text-secondary text-[18px]">corporate_fare</span><span
+                            class="font-label-default text-label-default font-medium truncate">Sistem Informasi
+                            Kampus</span></div><span
+                        class="material-symbols-outlined text-outline text-[16px]">unfold_more</span>
+                </div>
+            </div>
+            <div class="px-space-lg pt-space-md pb-space-xs"><span
+                    class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Menu
+                    Utama</span></div>
+            <nav class="flex flex-col gap-0.5 px-space-md"
+                data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a
+                    aria-current="page"
+                    class="flex items-center justify-between px-space-md py-2 transition-all bg-surface-container-low text-secondary font-semibold rounded-xl"
+                    data-path="dashboard" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">grid_view</span><span
+                            class="font-body-medium text-body-medium">Dashboard</span></div>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="tugas-saya" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">check_circle</span><span
+                            class="font-body-medium text-body-medium">Tugas Saya</span></div><span
+                        class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">8</span>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="proyek" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">folder</span><span
+                            class="font-body-medium text-body-medium">Proyek</span></div><span
+                        class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">5</span>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="task-board" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">view_kanban</span><span
+                            class="font-body-medium text-body-medium">Task Board</span></div>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="laporan-dan-analitik" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">bar_chart</span><span
+                            class="font-body-medium text-body-medium">Laporan &amp; Analitik</span></div>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="notifikasi" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">notifications</span><span
+                            class="font-body-medium text-body-medium">Notifikasi</span></div><span
+                        class="px-1.5 py-0.5 rounded-full bg-error text-on-error font-label-default text-label-default leading-none">3</span>
+                </a></nav>
+            <div class="px-space-lg pt-space-lg pb-space-xs"><span
+                    class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Administrasi</span>
+            </div>
+            <nav class="flex flex-col gap-0.5 px-space-md"
+                data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="anggota-tim" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">group</span><span
+                            class="font-body-medium text-body-medium">Anggota Tim</span></div>
+                </a><a
+                    class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+                    data-path="pengaturan" href="#">
+                    <div class="flex items-center gap-space-md"><span
+                            class="material-symbols-outlined text-[20px]">settings</span><span
+                            class="font-body-medium text-body-medium">Pengaturan</span></div>
+                </a></nav>
+        </div>
+        <div class="p-space-md bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] m-space-sm rounded-xl">
+            <div class="flex items-center justify-between gap-space-sm">
+                <div class="flex items-center gap-space-sm min-w-0"><img alt="Profile"
+                        class="w-8 h-8 rounded-full object-cover shrink-0"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg" />
+                    <div class="flex flex-col min-w-0 leading-tight"><span
+                            class="font-body-medium text-body-medium text-on-surface font-semibold truncate">Achmad
+                            Fauzi</span><span
+                            class="font-label-uppercase text-label-uppercase text-on-surface-variant truncate">Biro
+                            Sistem Informasi</span></div>
+                </div><button
+                    class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors"
+                    type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+            </div>
+        </div>
+    </aside>
+    <div class="pl-64">
+        <header
+            class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl">
+            <div class="flex items-center gap-space-md">
+                <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                    <span>Workspace</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span
+                        class="text-on-surface font-medium">Dashboard Utama</span>
+                </div>
+                <div class="relative ml-space-xl w-80"><span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input
+                        class="w-full h-9 pl-9 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-xl font-body-sm text-body-sm outline-none focus:bg-surface-container transition-all"
+                        placeholder="Cari tugas, proyek, atau dokumen... (Ctrl + K)" type="text" /></div>
+            </div>
+            <div class="flex items-center gap-space-md"><button
+                    class="flex items-center gap-space-xs h-9 px-space-md bg-secondary text-on-secondary rounded-xl font-body-medium text-body-medium hover:bg-secondary-container transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+                    type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>Buat
+                        Tugas</span></button>
+                <div class="relative flex items-center justify-center"><button
+                        class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors"
+                        type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span
+                            class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button>
+                </div><button
+                    class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors"
+                    type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button>
+                <div class="flex items-center gap-space-xs pl-space-xs cursor-pointer"><img alt="Profile"
+                        class="w-8 h-8 rounded-full object-cover shrink-0"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg" /><span
+                        class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div>
+            </div>
+        </header>
+        <main class="relative pt-16 w-full min-h-screen bg-surface">
+            <div class="flex flex-col w-full">
+                <div class="px-space-xl py-space-lg flex flex-col gap-space-xl max-w-[1600px] mx-auto w-full">
+                    <!-- Header Section -->
+                    <section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+                        <div class="flex flex-col gap-1 min-w-0">
+                            <div class="flex items-center gap-space-sm flex-wrap">
+                                <h1
+                                    class="font-headline-xl text-headline-xl text-on-surface tracking-tight flex items-center gap-2">
+                                    Selamat pagi, Achmad!
+                                    <span aria-label="Waving hand"
+                                        class="inline-flex items-center justify-center text-lg select-none">👋</span>
+                                </h1>
+                                <span
+                                    class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-default text-label-default flex items-center gap-1.5 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                    Staf Pengembang BSI
+                                </span>
+                            </div>
+                            <p class="font-body-default text-body-default text-on-surface-variant">
+                                Pantau tugas, proyek, dan produktivitas tim Anda di lingkungan UPN Veteran Yogyakarta.
+                            </p>
+                            <div
+                                class="flex items-center gap-space-xs mt-1 text-outline font-label-default text-label-default">
+                                <span class="material-symbols-outlined text-[15px] text-secondary">calendar_today</span>
+                                <span class="text-on-surface font-medium">Kamis, 24 Oktober 2024</span>
+                                <span class="text-outline-variant">•</span>
+                                <span>Semester Ganjil 2024/2025</span>
+                                <span class="text-outline-variant">•</span>
+                                <span
+                                    class="text-on-tertiary-fixed-variant bg-tertiary-fixed/40 px-1.5 py-0.5 rounded text-[11px] font-semibold">Minggu
+                                    Perkuliahan ke-9</span>
+                            </div>
+                        </div>
+                        <!-- Action Buttons & Quick Filter -->
+                        <div class="flex items-center gap-space-sm flex-wrap lg:self-center shrink-0">
+                            <!-- Quick Filter Dropdown -->
+                            <div class="relative">
+                                <button
+                                    class="flex items-center gap-2 h-9 px-space-md bg-surface-container-lowest text-on-surface rounded-xl font-body-medium text-body-medium shadow-sm hover:bg-surface-container-low transition-colors"
+                                    id="filterBtn" type="button">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-on-surface-variant">tune</span>
+                                    <span>Filter: <strong class="font-semibold text-secondary">Minggu
+                                            Ini</strong></span>
+                                    <span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+                                </button>
+                            </div>
+                            <!-- Secondary Action -->
+                            <button
+                                class="flex items-center gap-space-xs h-9 px-space-md bg-surface-container-lowest text-on-surface rounded-xl font-body-medium text-body-medium hover:bg-surface-container-low transition-colors shadow-sm"
+                                type="button">
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-on-surface-variant">create_new_folder</span>
+                                <span>Buat Proyek</span>
+                            </button>
+                            <!-- Primary Action -->
+                            <button
+                                class="flex items-center gap-space-xs h-9 px-space-md bg-secondary text-on-secondary rounded-xl font-body-medium text-body-medium hover:bg-secondary-container transition-all shadow-sm active:scale-95"
+                                type="button">
+                                <span class="material-symbols-outlined text-[18px]">add_task</span>
+                                <span class="font-semibold">+ Buat Tugas</span>
+                            </button>
+                        </div>
+                    </section>
+                    <!-- Summary KPI Cards -->
+                    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+                        <!-- Card 1: Total Task Aktif -->
+                        <div
+                            class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-20 h-20 bg-secondary/5 rounded-full blur-xl group-hover:scale-125 transition-transform">
+                            </div>
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span
+                                        class="font-label-default text-label-default text-on-surface-variant uppercase tracking-wider font-semibold">Total
+                                        Task Aktif</span>
+                                    <div
+                                        class="font-headline-xl text-headline-xl text-on-surface mt-1 font-bold tracking-tight">
+                                        24</div>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary">
+                                    <span class="material-symbols-outlined text-[22px]">assignment_turned_in</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-4 flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                <span
+                                    class="flex items-center text-on-tertiary-fixed-variant font-semibold bg-tertiary-fixed/30 px-1.5 py-0.5 rounded text-[11px]">
+                                    <span class="material-symbols-outlined text-[14px]">trending_up</span> +3
+                                </span>
+                                <span class="truncate">task baru dibanding minggu lalu</span>
+                            </div>
+                        </div>
+                        <!-- Card 2: Task Overdue -->
+                        <div
+                            class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-20 h-20 bg-error/5 rounded-full blur-xl group-hover:scale-125 transition-transform">
+                            </div>
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span
+                                        class="font-label-default text-label-default text-on-surface-variant uppercase tracking-wider font-semibold">Task
+                                        Overdue</span>
+                                    <div
+                                        class="font-headline-xl text-headline-xl text-error mt-1 font-bold tracking-tight">
+                                        3</div>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+                                    <span class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: 'FILL' 1;">error</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center gap-1.5">
+                                <span
+                                    class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-default text-label-default font-semibold flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+                                    Perlu tindakan segera
+                                </span>
+                                <span class="text-outline text-body-sm text-body-sm font-label-default">2 hari
+                                    lewat</span>
+                            </div>
+                        </div>
+                        <!-- Card 3: Task Selesai Minggu Ini -->
+                        <div
+                            class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div
+                                class="absolute -right-4 -top-4 w-20 h-20 bg-tertiary/5 rounded-full blur-xl group-hover:scale-125 transition-transform">
+                            </div>
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span
+                                        class="font-label-default text-label-default text-on-surface-variant uppercase tracking-wider font-semibold">Selesai
+                                        Minggu Ini</span>
+                                    <div
+                                        class="font-headline-xl text-headline-xl text-on-surface mt-1 font-bold tracking-tight">
+                                        12</div>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-tertiary-fixed/30 flex items-center justify-center text-on-tertiary-fixed-variant">
+                                    <span class="material-symbols-outlined text-[22px]"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-4 flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+                                <span
+                                    class="px-2 py-0.5 rounded-full bg-tertiary-fixed/40 text-on-tertiary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">arrow_upward</span> +18%
+                                </span>
+                                <span class="truncate">penyelesaian dari target</span>
+                            </div>
+                        </div>
+                        <!-- Card 4: Progres Proyek Keseluruhan -->
+                        <div
+                            class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span
+                                        class="font-label-default text-label-default text-on-surface-variant uppercase tracking-wider font-semibold">Progres
+                                        Proyek</span>
+                                    <div
+                                        class="font-headline-xl text-headline-xl text-on-surface mt-1 font-bold tracking-tight">
+                                        68%</div>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container">
+                                    <span class="material-symbols-outlined text-[22px]">view_kanban</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-col gap-1.5">
+                                <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-primary-container to-secondary h-full rounded-full transition-all duration-500"
+                                        style="width: 68%;"></div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between text-outline font-label-default text-label-default">
+                                    <span>3 dari 5 proyek on-track</span>
+                                    <span class="text-secondary font-medium">82 subtask</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Main Grid Content: 2 Columns -->
+                    <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+                        <!-- Left Column: Primary Content (8 Cols on XL) -->
+                        <div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
+                            <!-- Section A: Tugas Saya (Interactive Task Table) -->
+                            <section
+                                class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+                                <div
+                                    class="p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-lowest">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                                        <h2 class="font-headline-md text-headline-md text-on-surface">Tugas Saya</h2>
+                                        <span
+                                            class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-default text-label-default font-semibold">
+                                            5 Ditugaskan
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center gap-space-xs self-end sm:self-auto">
+                                        <button
+                                            class="px-2.5 py-1.5 rounded-lg text-secondary bg-surface-container-low font-body-sm text-body-sm font-medium hover:bg-surface-container transition-colors">
+                                            Semua Prioritas
+                                        </button>
+                                        <button
+                                            class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors">
+                                            <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Table Container -->
+                                <div class="overflow-x-auto w-full">
+                                    <table class="w-full text-left font-body-sm text-body-sm min-w-[700px]">
+                                        <thead
+                                            class="bg-surface-container-low text-on-surface-variant font-label-uppercase text-label-uppercase uppercase">
+                                            <tr>
+                                                <th class="py-3 px-space-md w-10 text-center" scope="col">
+                                                    <input class="rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        id="selectAllTasks" type="checkbox" />
+                                                </th>
+                                                <th class="py-3 px-space-md" scope="col">Task &amp; Subteks</th>
+                                                <th class="py-3 px-space-md" scope="col">Proyek</th>
+                                                <th class="py-3 px-space-md" scope="col">Prioritas</th>
+                                                <th class="py-3 px-space-md" scope="col">Tenggat Waktu</th>
+                                                <th class="py-3 px-space-md" scope="col">Status</th>
+                                                <th class="py-3 px-space-md text-right" scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-surface-container-low">
+                                            <!-- Row 1: Urgent & Today -->
+                                            <tr class="hover:bg-surface-container-low/60 transition-colors group">
+                                                <td class="py-3 px-space-md text-center">
+                                                    <input
+                                                        class="task-checkbox rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        type="checkbox" />
+                                                </td>
+                                                <td class="py-3 px-space-md max-w-[240px]">
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="font-body-medium text-body-medium font-semibold text-on-surface group-hover:text-secondary transition-colors cursor-pointer truncate">
+                                                            Integrasi API SSO SIAKAD dengan Portal Kampus
+                                                        </span>
+                                                        <span
+                                                            class="font-label-default text-label-default text-outline truncate">BSI-402
+                                                            • OAuth 2.0 Client credentials</span>
+                                                    </div>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        SI Kampus
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-default text-label-default font-semibold">
+                                                        <span class="w-1.5 h-1.5 rounded-full bg-error"></span> Urgent
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span class="text-error font-medium flex items-center gap-1">
+                                                        <span
+                                                            class="material-symbols-outlined text-[15px]">schedule</span>
+                                                        Hari Ini, 16:00
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-default text-label-default font-semibold">
+                                                        In Progress
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md text-right whitespace-nowrap">
+                                                    <div class="flex items-center justify-end gap-1">
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Detail Task">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">open_in_new</span>
+                                                        </button>
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Menu Opsi">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">more_horiz</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Row 2: High & Tomorrow -->
+                                            <tr class="hover:bg-surface-container-low/60 transition-colors group">
+                                                <td class="py-3 px-space-md text-center">
+                                                    <input
+                                                        class="task-checkbox rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        type="checkbox" />
+                                                </td>
+                                                <td class="py-3 px-space-md max-w-[240px]">
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="font-body-medium text-body-medium font-semibold text-on-surface group-hover:text-secondary transition-colors cursor-pointer truncate">
+                                                            Migrasi Server Database Nilai Semester Genap
+                                                        </span>
+                                                        <span
+                                                            class="font-label-default text-label-default text-outline truncate">INFRA-109
+                                                            • Cluster PostgreSQL 15 Babarsari</span>
+                                                    </div>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        Infrastruktur TI
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold">
+                                                        <span
+                                                            class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                                        High
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span class="text-on-surface font-medium">Besok, 12:00</span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        To Do
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md text-right whitespace-nowrap">
+                                                    <div class="flex items-center justify-end gap-1">
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Detail Task">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">open_in_new</span>
+                                                        </button>
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Menu Opsi">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">more_horiz</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Row 3: Medium Priority -->
+                                            <tr class="hover:bg-surface-container-low/60 transition-colors group">
+                                                <td class="py-3 px-space-md text-center">
+                                                    <input
+                                                        class="task-checkbox rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        type="checkbox" />
+                                                </td>
+                                                <td class="py-3 px-space-md max-w-[240px]">
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="font-body-medium text-body-medium font-semibold text-on-surface group-hover:text-secondary transition-colors cursor-pointer truncate">
+                                                            Review UI/UX Modul Pembayaran UKT Bank BPD
+                                                        </span>
+                                                        <span
+                                                            class="font-label-default text-label-default text-outline truncate">KEU-88
+                                                            • Virtual account settlement</span>
+                                                    </div>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        Portal Keuangan
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        Medium
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span class="text-on-surface">26 Okt 2024</span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-default text-label-default font-semibold">
+                                                        In Progress
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md text-right whitespace-nowrap">
+                                                    <div class="flex items-center justify-end gap-1">
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Detail Task">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">open_in_new</span>
+                                                        </button>
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Menu Opsi">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">more_horiz</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Row 4: Low Priority -->
+                                            <tr class="hover:bg-surface-container-low/60 transition-colors group">
+                                                <td class="py-3 px-space-md text-center">
+                                                    <input
+                                                        class="task-checkbox rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        type="checkbox" />
+                                                </td>
+                                                <td class="py-3 px-space-md max-w-[240px]">
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="font-body-medium text-body-medium font-semibold text-on-surface group-hover:text-secondary transition-colors cursor-pointer truncate">
+                                                            Update Sertifikat SSL Subdomain fti.upnyk.ac.id
+                                                        </span>
+                                                        <span
+                                                            class="font-label-default text-label-default text-outline truncate">WEB-14
+                                                            • Perpanjangan Let's Encrypt Wildcard</span>
+                                                    </div>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        Pemeliharaan Web
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-outline font-label-default text-label-default">
+                                                        Low
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span class="text-on-surface">28 Okt 2024</span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-default text-label-default font-semibold">
+                                                        Review
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md text-right whitespace-nowrap">
+                                                    <div class="flex items-center justify-end gap-1">
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Detail Task">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">open_in_new</span>
+                                                        </button>
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Menu Opsi">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">more_horiz</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Row 5: High Priority -->
+                                            <tr class="hover:bg-surface-container-low/60 transition-colors group">
+                                                <td class="py-3 px-space-md text-center">
+                                                    <input
+                                                        class="task-checkbox rounded accent-secondary w-4 h-4 cursor-pointer"
+                                                        type="checkbox" />
+                                                </td>
+                                                <td class="py-3 px-space-md max-w-[240px]">
+                                                    <div class="flex flex-col">
+                                                        <span
+                                                            class="font-body-medium text-body-medium font-semibold text-on-surface group-hover:text-secondary transition-colors cursor-pointer truncate">
+                                                            Penyusunan Laporan Audit Keamanan Siber Triwulan
+                                                        </span>
+                                                        <span
+                                                            class="font-label-default text-label-default text-outline truncate">GOV-51
+                                                            • Format BSSN &amp; Rektorat</span>
+                                                    </div>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        Tata Kelola TI
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold">
+                                                        <span
+                                                            class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                                        High
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span class="text-on-surface">30 Okt 2024</span>
+                                                </td>
+                                                <td class="py-3 px-space-md whitespace-nowrap">
+                                                    <span
+                                                        class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">
+                                                        To Do
+                                                    </span>
+                                                </td>
+                                                <td class="py-3 px-space-md text-right whitespace-nowrap">
+                                                    <div class="flex items-center justify-end gap-1">
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Detail Task">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">open_in_new</span>
+                                                        </button>
+                                                        <button
+                                                            class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors"
+                                                            title="Menu Opsi">
+                                                            <span
+                                                                class="material-symbols-outlined text-[18px]">more_horiz</span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Footer Link -->
+                                <div class="p-space-sm bg-surface-container-low/50 flex items-center justify-between">
+                                    <span class="font-label-default text-label-default text-outline">
+                                        Menampilkan 5 dari 14 tugas aktif Achmad
+                                    </span>
+                                    <a class="inline-flex items-center gap-1 text-secondary font-body-sm text-body-sm font-semibold hover:underline"
+                                        href="#">
+                                        Lihat Semua Tugas Saya (14)
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </section>
+                            <!-- Section B: Progres Proyek Unggulan (Grid Cards) -->
+                            <section class="flex flex-col gap-space-md">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                                        <h2 class="font-headline-md text-headline-md text-on-surface">Progres Proyek
+                                            Unggulan</h2>
+                                    </div>
+                                    <a class="text-secondary font-body-sm text-body-sm font-medium hover:underline flex items-center gap-1"
+                                        href="#">
+                                        Semua Proyek (5) <span
+                                            class="material-symbols-outlined text-[16px]">chevron_right</span>
+                                    </a>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+                                    <!-- Project 1 -->
+                                    <div
+                                        class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                                        <div class="flex flex-col gap-space-xs">
+                                            <div class="flex items-start justify-between gap-2">
+                                                <span
+                                                    class="px-2 py-0.5 rounded-full bg-tertiary-fixed/30 text-on-tertiary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+                                                    <span
+                                                        class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+                                                    Aktif • On Track
+                                                </span>
+                                                <button
+                                                    class="text-outline hover:text-on-surface transition-colors p-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">bookmark_border</span>
+                                                </button>
+                                            </div>
+                                            <h3
+                                                class="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-secondary transition-colors mt-1">
+                                                Sistem Informasi Kampus v3.0
+                                            </h3>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                                                Modernisasi core backend KRS, KHS, dan integrasi modul kurikulum MBKM
+                                                nasional.
+                                            </p>
+                                        </div>
+                                        <div class="mt-4 flex flex-col gap-space-sm">
+                                            <div class="flex items-center justify-between text-body-sm text-body-sm">
+                                                <span class="text-on-surface-variant">Penyelesaian</span>
+                                                <span class="font-semibold text-on-surface">74%</span>
+                                            </div>
+                                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary h-full rounded-full transition-all duration-300"
+                                                    style="width: 74%;"></div>
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between pt-2 text-outline font-label-default text-label-default">
+                                                <span class="flex items-center gap-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                    38/52 Task
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <span class="material-symbols-outlined text-[14px]">event</span> 15
+                                                    Des 2024
+                                                </span>
+                                            </div>
+                                            <!-- Avatars -->
+                                            <div class="flex items-center justify-between pt-2">
+                                                <div class="flex items-center -space-x-2 overflow-hidden">
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        AP
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        SN
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        DA
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container-low text-on-surface-variant flex items-center justify-center font-label-default text-label-default font-medium shadow-sm">
+                                                        +3
+                                                    </div>
+                                                </div>
+                                                <span class="text-xs text-outline font-code-sm">v3.0.4-rc</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Project 2 -->
+                                    <div
+                                        class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                                        <div class="flex flex-col gap-space-xs">
+                                            <div class="flex items-start justify-between gap-2">
+                                                <span
+                                                    class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-default text-label-default font-semibold flex items-center gap-1">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                                    Dalam Review
+                                                </span>
+                                                <button
+                                                    class="text-outline hover:text-on-surface transition-colors p-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">bookmark_border</span>
+                                                </button>
+                                            </div>
+                                            <h3
+                                                class="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-secondary transition-colors mt-1">
+                                                Redesain Website Fakultas
+                                            </h3>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                                                Penyelarasan identitas visual 5 fakultas dengan panduan brand standar
+                                                UPN Veteran.
+                                            </p>
+                                        </div>
+                                        <div class="mt-4 flex flex-col gap-space-sm">
+                                            <div class="flex items-center justify-between text-body-sm text-body-sm">
+                                                <span class="text-on-surface-variant">Penyelesaian</span>
+                                                <span class="font-semibold text-on-surface">90%</span>
+                                            </div>
+                                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary-container h-full rounded-full transition-all duration-300"
+                                                    style="width: 90%;"></div>
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between pt-2 text-outline font-label-default text-label-default">
+                                                <span class="flex items-center gap-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                    18/20 Task
+                                                </span>
+                                                <span class="flex items-center gap-1 text-on-surface font-medium">
+                                                    <span class="material-symbols-outlined text-[14px]">event</span> 31
+                                                    Okt 2024
+                                                </span>
+                                            </div>
+                                            <!-- Avatars -->
+                                            <div class="flex items-center justify-between pt-2">
+                                                <div class="flex items-center -space-x-2 overflow-hidden">
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-tint text-surface flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        MA
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        BS
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        AF
+                                                    </div>
+                                                </div>
+                                                <span class="text-xs text-secondary font-medium">Sprint Final</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Project 3 -->
+                                    <div
+                                        class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                                        <div class="flex flex-col gap-space-xs">
+                                            <div class="flex items-start justify-between gap-2">
+                                                <span
+                                                    class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+                                                    <span
+                                                        class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                                    Perlu Perhatian
+                                                </span>
+                                                <button
+                                                    class="text-outline hover:text-on-surface transition-colors p-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">bookmark_border</span>
+                                                </button>
+                                            </div>
+                                            <h3
+                                                class="font-title-sm text-title-sm text-on-surface font-semibold group-hover:text-secondary transition-colors mt-1">
+                                                Layanan Administrasi &amp; Surat FTI
+                                            </h3>
+                                            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                                                Sistem e-office tanda tangan elektronik dosen &amp; surat pengantar lab
+                                                terpadu.
+                                            </p>
+                                        </div>
+                                        <div class="mt-4 flex flex-col gap-space-sm">
+                                            <div class="flex items-center justify-between text-body-sm text-body-sm">
+                                                <span class="text-on-surface-variant">Penyelesaian</span>
+                                                <span class="font-semibold text-on-surface">42%</span>
+                                            </div>
+                                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary-fixed-dim h-full rounded-full transition-all duration-300"
+                                                    style="width: 42%;"></div>
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between pt-2 text-outline font-label-default text-label-default">
+                                                <span class="flex items-center gap-1">
+                                                    <span
+                                                        class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                    14/33 Task
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <span class="material-symbols-outlined text-[14px]">event</span> 10
+                                                    Nov 2024
+                                                </span>
+                                            </div>
+                                            <!-- Avatars -->
+                                            <div class="flex items-center justify-between pt-2">
+                                                <div class="flex items-center -space-x-2 overflow-hidden">
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        SN
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed-variant flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        RP
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-default text-label-default font-bold shadow-sm">
+                                                        DA
+                                                    </div>
+                                                    <div
+                                                        class="w-7 h-7 rounded-full bg-surface-container-low text-on-surface-variant flex items-center justify-center font-label-default text-label-default font-medium shadow-sm">
+                                                        +2
+                                                    </div>
+                                                </div>
+                                                <span class="text-xs text-error font-medium">Fase TTE Terhambat</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- Right Column: Sidebar Widgets (4 Cols on XL) -->
+                        <div class="xl:col-span-4 flex flex-col gap-space-lg min-w-0">
+                            <!-- Widget 1: Deadline Mendatang (Urgent & Overdue) -->
+                            <section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col">
+                                <div class="flex items-center justify-between pb-space-sm">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-error text-[20px]">alarm</span>
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Deadline Mendesak
+                                        </h3>
+                                    </div>
+                                    <span
+                                        class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-default text-label-default font-bold">
+                                        3 Penting
+                                    </span>
+                                </div>
+                                <div class="flex flex-col gap-space-sm mt-space-xs">
+                                    <!-- Item 1: Overdue -->
+                                    <div
+                                        class="p-space-sm rounded-xl bg-error-container/20 flex flex-col gap-1 hover:bg-error-container/30 transition-colors">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <span
+                                                class="px-2 py-0.5 rounded-md bg-error text-on-error font-label-default text-label-default font-semibold flex items-center gap-1">
+                                                <span class="material-symbols-outlined text-[13px]">warning</span>
+                                                Terlambat 1 hari
+                                            </span>
+                                            <span
+                                                class="text-outline font-label-default text-label-default">Infrastruktur</span>
+                                        </div>
+                                        <h4
+                                            class="font-body-medium text-body-medium font-semibold text-on-surface mt-1">
+                                            Konfigurasi DNS Server Kampus II Babarsari
+                                        </h4>
+                                        <div
+                                            class="flex items-center justify-between text-on-surface-variant font-label-default text-label-default pt-1">
+                                            <div class="flex items-center gap-1.5">
+                                                <div
+                                                    class="w-5 h-5 rounded-full bg-surface-container-high text-primary flex items-center justify-center text-[10px] font-bold">
+                                                    BS
+                                                </div>
+                                                <span>Budi Santoso</span>
+                                            </div>
+                                            <button
+                                                class="text-secondary hover:underline font-medium">Tindaklanjuti</button>
+                                        </div>
+                                    </div>
+                                    <!-- Item 2: Due Today -->
+                                    <div
+                                        class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1 hover:bg-surface-container transition-colors">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <span
+                                                class="px-2 py-0.5 rounded-md bg-surface-container-high text-secondary font-label-default text-label-default font-semibold flex items-center gap-1">
+                                                <span class="material-symbols-outlined text-[13px]">hourglass_top</span>
+                                                Sisa 4 jam
+                                            </span>
+                                            <span
+                                                class="text-outline font-label-default text-label-default">SIAKAD</span>
+                                        </div>
+                                        <h4
+                                            class="font-body-medium text-body-medium font-semibold text-on-surface mt-1">
+                                            Backup Database Evaluasi Dosen (EDOM)
+                                        </h4>
+                                        <div
+                                            class="flex items-center justify-between text-on-surface-variant font-label-default text-label-default pt-1">
+                                            <div class="flex items-center gap-1.5">
+                                                <div
+                                                    class="w-5 h-5 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-[10px] font-bold">
+                                                    AF
+                                                </div>
+                                                <span>Achmad Fauzi (Saya)</span>
+                                            </div>
+                                            <button class="text-secondary hover:underline font-medium">Buka
+                                                Task</button>
+                                        </div>
+                                    </div>
+                                    <!-- Item 3: Due Tomorrow -->
+                                    <div
+                                        class="p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex flex-col gap-1">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <span
+                                                class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-default text-label-default font-medium">
+                                                Besok, 17:00 WIB
+                                            </span>
+                                            <span
+                                                class="text-outline font-label-default text-label-default">Akademik</span>
+                                        </div>
+                                        <h4
+                                            class="font-body-medium text-body-medium font-semibold text-on-surface mt-1">
+                                            Verifikasi Berkas Mahasiswa Magang MBKM
+                                        </h4>
+                                        <div
+                                            class="flex items-center justify-between text-on-surface-variant font-label-default text-label-default pt-1">
+                                            <div class="flex items-center gap-1.5">
+                                                <div
+                                                    class="w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center text-[10px] font-bold">
+                                                    SN
+                                                </div>
+                                                <span>Siti Nurhaliza</span>
+                                            </div>
+                                            <button class="text-secondary hover:underline font-medium">Lihat</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Widget 2: Workload Tim (Biro Sistem Informasi) -->
+                            <section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col">
+                                <div class="flex items-center justify-between pb-space-sm">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-secondary text-[20px]">bar_chart</span>
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Workload Tim (BSI)
+                                        </h3>
+                                    </div>
+                                    <span class="text-outline font-label-default text-label-default">4 Anggota
+                                        Inti</span>
+                                </div>
+                                <div class="flex flex-col gap-space-md mt-space-xs">
+                                    <!-- Member 1: Rizky Pratama -->
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between font-body-sm text-body-sm">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-medium text-on-surface">Rizky Pratama</span>
+                                                <span
+                                                    class="text-outline font-label-default text-label-default">Frontend</span>
+                                            </div>
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="font-bold text-on-surface">7 task</span>
+                                                <span class="text-outline text-xs">(80%)</span>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+                                            <div class="bg-secondary-container h-full rounded-full" style="width: 80%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Member 2: Siti Nurhaliza -->
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between font-body-sm text-body-sm">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-medium text-on-surface">Siti Nurhaliza</span>
+                                                <span
+                                                    class="text-outline font-label-default text-label-default">Backend</span>
+                                            </div>
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="font-bold text-on-surface">5 task</span>
+                                                <span class="text-outline text-xs">(60%)</span>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+                                            <div class="bg-secondary h-full rounded-full" style="width: 60%;"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Member 3: Dimas Arya -->
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between font-body-sm text-body-sm">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-medium text-on-surface">Dimas Arya</span>
+                                                <span
+                                                    class="text-outline font-label-default text-label-default">DevOps</span>
+                                            </div>
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="font-bold text-error">8 task</span>
+                                                <span class="text-error font-semibold text-xs">(95%) Kapasitas
+                                                    Penuh</span>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+                                            <div class="bg-error h-full rounded-full" style="width: 95%;"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Member 4: Maya Anggraini -->
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center justify-between font-body-sm text-body-sm">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-medium text-on-surface">Maya Anggraini</span>
+                                                <span
+                                                    class="text-outline font-label-default text-label-default">UI/UX</span>
+                                            </div>
+                                            <div class="flex items-center gap-1.5">
+                                                <span class="font-bold text-on-surface">4 task</span>
+                                                <span class="text-outline text-xs">(45%)</span>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+                                            <div class="bg-tertiary-fixed-dim h-full rounded-full" style="width: 45%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low/40 p-2 rounded-lg text-outline font-label-default text-label-default">
+                                    <span>Beban normal: &lt; 6 task</span>
+                                    <span class="text-error font-semibold">Tinggi: ≥ 7 task</span>
+                                </div>
+                            </section>
+                            <!-- Widget 3: Aktivitas Terbaru (Live Activity Stream) -->
+                            <section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col">
+                                <div class="flex items-center justify-between pb-space-sm">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-secondary text-[20px]">history</span>
+                                        <h3 class="font-headline-md text-headline-md text-on-surface">Aktivitas Terbaru
+                                        </h3>
+                                    </div>
+                                    <button class="text-outline hover:text-on-surface transition-colors">
+                                        <span class="material-symbols-outlined text-[18px]">refresh</span>
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-space-md mt-space-xs relative before:absolute before:top-2 before:bottom-2 before:left-3.5 before:w-0.5 before:bg-surface-container">
+                                    <!-- Activity 1 -->
+                                    <div class="flex items-start gap-space-md relative">
+                                        <div
+                                            class="w-7 h-7 rounded-full bg-tertiary-fixed/40 text-on-tertiary-fixed-variant flex items-center justify-center shrink-0 z-10 shadow-sm">
+                                            <span class="material-symbols-outlined text-[14px]">done_all</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <p class="font-body-sm text-body-sm text-on-surface leading-tight">
+                                                <strong class="font-semibold text-on-surface">Siti Nurhaliza</strong>
+                                                menyelesaikan task
+                                                <span
+                                                    class="text-secondary font-medium hover:underline cursor-pointer">"Patch
+                                                    Kerentanan SQL Injection pada API Presensi"</span>
+                                            </p>
+                                            <span class="font-label-default text-label-default text-outline mt-1">10
+                                                menit lalu • Portal Akademik</span>
+                                        </div>
+                                    </div>
+                                    <!-- Activity 2 -->
+                                    <div class="flex items-start gap-space-md relative">
+                                        <div
+                                            class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center shrink-0 z-10 shadow-sm">
+                                            <span
+                                                class="material-symbols-outlined text-[14px]">chat_bubble_outline</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <p class="font-body-sm text-body-sm text-on-surface leading-tight">
+                                                <strong class="font-semibold text-on-surface">Dimas Arya</strong>
+                                                menambahkan komentar pada
+                                                <span
+                                                    class="text-secondary font-medium hover:underline cursor-pointer">"Penyusunan
+                                                    Topologi Jaringan Gedung Patani"</span>
+                                            </p>
+                                            <span class="font-label-default text-label-default text-outline mt-1">45
+                                                menit lalu • Jaringan Kampus</span>
+                                        </div>
+                                    </div>
+                                    <!-- Activity 3 -->
+                                    <div class="flex items-start gap-space-md relative">
+                                        <div
+                                            class="w-7 h-7 rounded-full bg-surface-container-high text-primary flex items-center justify-center shrink-0 z-10 shadow-sm">
+                                            <span class="material-symbols-outlined text-[14px]">sync_alt</span>
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <p class="font-body-sm text-body-sm text-on-surface leading-tight">
+                                                <strong class="font-semibold text-on-surface">Budi Santoso</strong>
+                                                mengubah status task menjadi <span
+                                                    class="text-on-tertiary-fixed-variant font-semibold">Done</span>
+                                                pada
+                                                <span
+                                                    class="text-secondary font-medium hover:underline cursor-pointer">"Sinkronisasi
+                                                    Data Mahasiswa Baru"</span>
+                                            </p>
+                                            <span class="font-label-default text-label-default text-outline mt-1">2 jam
+                                                lalu • SPMB UPNYK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button
+                                    class="mt-space-md py-2 w-full text-center text-on-surface-variant hover:text-on-surface bg-surface-container-low hover:bg-surface-container rounded-lg font-body-sm text-body-sm font-medium transition-colors">
+                                    Lihat Seluruh Log Audit Kampus
+                                </button>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                    (function () {
+                        // Select all tasks behavior
+                        const selectAll = document.getElementById('selectAllTasks');
+                        const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+
+                        if (selectAll) {
+                            selectAll.addEventListener('change', function () {
+                                taskCheckboxes.forEach(cb => {
+                                    cb.checked = selectAll.checked;
+                                    const tr = cb.closest('tr');
+                                    if (tr) {
+                                        if (selectAll.checked) {
+                                            tr.classList.add('bg-surface-container-low/40');
+                                        } else {
+                                            tr.classList.remove('bg-surface-container-low/40');
+                                        }
+                                    }
+                                });
+                            });
+                        }
+
+                        taskCheckboxes.forEach(cb => {
+                            cb.addEventListener('change', function () {
+                                const tr = cb.closest('tr');
+                                if (tr) {
+                                    if (cb.checked) {
+                                        tr.classList.add('bg-surface-container-low/40');
+                                    } else {
+                                        tr.classList.remove('bg-surface-container-low/40');
+                                    }
+                                }
+                            });
+                        });
+
+                        // Quick filter button interaction
+                        const filterBtn = document.getElementById('filterBtn');
+                        if (filterBtn) {
+                            filterBtn.addEventListener('click', () => {
+                                const currentPeriod = filterBtn.querySelector('strong');
+                                if (currentPeriod) {
+                                    if (currentPeriod.textContent === 'Minggu Ini') {
+                                        currentPeriod.textContent = 'Bulan Ini';
+                                    } else if (currentPeriod.textContent === 'Bulan Ini') {
+                                        currentPeriod.textContent = 'Hari Ini';
+                                    } else {
+                                        currentPeriod.textContent = 'Minggu Ini';
+                                    }
+                                }
+                            });
+                        }
+                    })();
+            </script>
+        </main>
+    </div>
+</body>
+
+</html>

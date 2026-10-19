@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPN Task Management — Stitch UI Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#002043',
+              primary: '#17365d',
+              accent: '#0051d5',
+              surface: '#f8f9ff',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8f9ff] text-[#0b1c30] font-sans min-h-screen">
+  <!-- Top Navigation Header -->
+  <header class="bg-[#002043] text-white py-6 px-8 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-lg shadow-inner">
+          UPN
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight">Task Management App — Design Showcase</h1>
+          <p class="text-xs text-blue-200">Exported from Google Stitch Project (10715284647255375605)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-sm">
+        <a href="design-system.md" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition flex items-center gap-1.5 text-xs font-semibold">
+          <span class="material-symbols-outlined text-[16px]">palette</span>
+          Design System Docs
+        </a>
+        <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+          9 Screens Available
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-[#002043] tracking-tight">Daftar Layar & Prototipe Antarmuka</h2>
+      <p class="text-sm text-slate-500 mt-1">Pilih layar di bawah untuk melihat preview interaktif HTML dan screenshot desain penuh.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Screen 1: Dashboard -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/dashboard.png" alt="Dashboard Utama" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 01
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Dashboard Utama</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Overview ringkasan KPI, total tugas aktif, task overdue, dan statistik proyek terkini.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">dashboard.html</span>
+            <a href="dashboard.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 2: Tugas Saya -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/tugas-saya.png" alt="Tugas Saya" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 02
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Tugas Saya</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Tabel daftar tugas personal anggota tim dengan filter status, prioritas, dan tenggat waktu.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">tugas-saya.html</span>
+            <a href="tugas-saya.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 3: Task Board -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/task-board.png" alt="Task Board" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 03
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Task Board (Kanban)</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Papan Kanban interaktif kolom To Do, In Progress, Review, dan Done dengan kartu tugas informatif.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">task-board.html</span>
+            <a href="task-board.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 4: Workspace Proyek -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/workspace-proyek.png" alt="Workspace Proyek" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 04
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Workspace Proyek</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Detail ruang kerja proyek, daftar anggota terdaftar, milestone progress, dan daftar task.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">workspace-proyek.html</span>
+            <a href="workspace-proyek.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 5: Detail Tugas BSI-402 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/detail-tugas.png" alt="Detail Tugas" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 05
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Detail Tugas</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Tampilan detail tugas, subtask checklist, histori aktivitas, form komentar, dan lampiran file.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">detail-tugas.html</span>
+            <a href="detail-tugas.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 6: Form Buat Tugas -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/buat-tugas.png" alt="Buat Tugas Baru" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 06
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Form Buat Tugas Baru</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Form modal input task baru dengan opsi proyek, milestone, assignee, prioritas, dan tenggat waktu.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">buat-tugas.html</span>
+            <a href="buat-tugas.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 7: Laporan & Analitik -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/laporan-analitik.png" alt="Laporan dan Analitik" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 07
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Laporan & Analitik</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Grafik statistik produktivitas tim, penyelesaian task per triwulan, dan tombol ekspor PDF/Excel.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">laporan-analitik.html</span>
+            <a href="laporan-analitik.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 8: Notifikasi & Aktivitas -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/notifikasi.png" alt="Notifikasi dan Aktivitas" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 08
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Pusat Notifikasi & Aktivitas</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Daftar notifikasi sistem, pengingat deadline mendekati jatuh tempo, dan riwayat aktivitas tim.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">notifikasi.html</span>
+            <a href="notifikasi.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 9: Pengaturan Tim & RBAC -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+        <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100">
+          <img src="screenshots/pengaturan-tim.png" alt="Pengaturan Tim RBAC" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" />
+          <span class="absolute top-3 left-3 bg-[#002043]/90 text-white text-[11px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">
+            Screen 09
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-base text-[#002043] group-hover:text-blue-600 transition">Pengaturan Tim & RBAC</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">Manajemen pengguna, pengaturan peran (Admin, Project Manager, Member, Viewer) dan permission Spatie.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-mono">pengaturan-tim.html</span>
+            <a href="pengaturan-tim.html" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700">
+              Buka Layar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-8 text-xs text-slate-400 border-t border-slate-200 bg-white mt-12">
+    UPN "Veteran" Yogyakarta — Task Management App UI Assets
+  </footer>
+</body>
+</html>

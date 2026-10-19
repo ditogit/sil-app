@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"background":"#f8f9ff","surface-container-lowest":"#ffffff","error-container":"#ffdad6","surface-container-low":"#eff4ff","secondary":"#0051d5","secondary-container":"#316bf3","primary-fixed":"#d5e3ff","surface":"#f8f9ff","error":"#ba1a1a","on-tertiary-fixed-variant":"#005320","on-background":"#0b1c30","secondary-fixed-dim":"#b4c5ff","on-secondary-fixed-variant":"#003ea8","inverse-primary":"#acc8f7","on-primary-fixed":"#001c3b","secondary-fixed":"#dbe1ff","primary-fixed-dim":"#acc8f7","on-surface":"#0b1c30","on-tertiary-fixed":"#002109","tertiary":"#00270b","on-primary":"#ffffff","primary-container":"#17365d","on-tertiary-container":"#32b559","outline":"#74777f","surface-tint":"#435f89","surface-container":"#e5eeff","on-primary-container":"#84a0cd","surface-variant":"#d3e4fe","tertiary-fixed-dim":"#62df7d","primary":"#002043","inverse-on-surface":"#eaf1ff","on-error":"#ffffff","on-primary-fixed-variant":"#2b486f","tertiary-container":"#003f17","surface-container-highest":"#d3e4fe","surface-bright":"#f8f9ff","on-secondary-container":"#fefcff","outline-variant":"#c4c6cf","tertiary-fixed":"#7ffc97","on-secondary-fixed":"#00174b","on-secondary":"#ffffff","surface-dim":"#cbdbf5","on-surface-variant":"#43474e","on-tertiary":"#ffffff","on-error-container":"#93000a","surface-container-high":"#dce9ff","inverse-surface":"#213145"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1rem","space-sm":"0.5rem","margin":"1.5rem","margin-compact":"1rem","space-md":"0.75rem","space-2xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","space-xs":"0.25rem","space-xxs":"0.125rem","space-xl":"1.5rem"},"fontFamily":{"headline-lg":["Inter"],"label-default":["Inter"],"headline-md":["Inter"],"title-sm":["Inter"],"body-sm":["Inter"],"body-medium":["Inter"],"code-sm":["Inter"],"headline-xl":["Inter"],"label-uppercase":["Inter"],"body-default":["Inter"]},"fontSize":{"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-default":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"500"}],"code-sm":["12px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"500"}],"headline-xl":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-uppercase":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"400"}]}}}}</script></head><body class="bg-surface text-on-surface font-body-default text-body-default"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md flex items-center gap-space-md"><img alt="UPN Task Manager Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4eDKzDHVL5Y1z0yEREmQilawO_-DQwJarBcp5Y09QX7xusuC0Eha0zh3NMcQM__7QxB0St3pR0A2JONsGxp79oTl2dxXTsB-7dDSaq066NSM-K-CcM1zg968BHTmb31SxrEdYwfV1J1RUHjAwqdpwYzcZQNgRbyaJUtcGr-gcDRtsm_7U5hlVTAgPbg__iN43M297390sWcctmSOkqUEkFo8RWs5j_4SvjNUgV2zD_p6_q7KwcJY_A"/><div class="flex flex-col min-w-0 leading-none"><span class="font-title-sm text-title-sm text-on-surface truncate tracking-tight">UPN Veteran</span><span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase tracking-wider mt-0.5">Task Management</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-md py-space-sm rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><span class="material-symbols-outlined text-secondary text-[18px]">corporate_fare</span><span class="font-label-default text-label-default font-medium truncate">Sistem Informasi Kampus</span></div><span class="material-symbols-outlined text-outline text-[16px]">unfold_more</span></div></div><div class="px-space-lg pt-space-md pb-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Menu Utama</span></div><nav class="flex flex-col gap-0.5 px-space-md" data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-medium text-body-medium">Dashboard</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="tugas-saya" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">check_circle</span><span class="font-body-medium text-body-medium">Tugas Saya</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">8</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="proyek" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">folder</span><span class="font-body-medium text-body-medium">Proyek</span></div><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default">5</span></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="task-board" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">view_kanban</span><span class="font-body-medium text-body-medium">Task Board</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="laporan-dan-analitik" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-medium text-body-medium">Laporan &amp; Analitik</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="notifikasi" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-body-medium text-body-medium">Notifikasi</span></div><span class="px-1.5 py-0.5 rounded-full bg-error text-on-error font-label-default text-label-default leading-none">3</span></a></nav><div class="px-space-lg pt-space-lg pb-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Administrasi</span></div><nav class="flex flex-col gap-0.5 px-space-md" data-active-classes="bg-surface-container-low text-secondary font-semibold rounded-xl"><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="anggota-tim" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-body-medium text-body-medium">Anggota Tim</span></div></a><a class="flex items-center justify-between px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pengaturan" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-medium text-body-medium">Pengaturan</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] m-space-sm rounded-xl"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg"/><div class="flex flex-col min-w-0 leading-tight"><span class="font-body-medium text-body-medium text-on-surface font-semibold truncate">Achmad Fauzi</span><span class="font-label-uppercase text-label-uppercase text-on-surface-variant truncate">Biro Sistem Informasi</span></div></div><button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>Workspace</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-medium">Dashboard Utama</span></div><div class="relative ml-space-xl w-80"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-space-md bg-surface-container-low text-on-surface placeholder:text-outline rounded-xl font-body-sm text-body-sm outline-none focus:bg-surface-container transition-all" placeholder="Cari tugas, proyek, atau dokumen... (Ctrl + K)" type="text"/></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs h-9 px-space-md bg-secondary text-on-secondary rounded-xl font-body-medium text-body-medium hover:bg-secondary-container transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.05)]" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>Buat Tugas</span></button><div class="relative flex items-center justify-center"><button class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDapX-yjCkrV5LUvAGjThYgCw1Lk0J-myysDmiXhxQ6tHlsJPHeOHMFnxXCcgza3cb3mw6dvbL1eijGV5QRNjZb2j-s_94PWmPLfvXoOBuJE4xMts7aVkwNMTBwuPW5yaS12jYJIma0HHWlFb0O6gwGEUrRImBVOWaFQu5DPrRXiienhRRdsvWvyD0HEnKYHWBpL3ZKw4rpVtt1OTqwYqL7dHeSfi2A-i217Tqv3N6MqjOX0DlE3f-CYg"/><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div></header><main class="relative pt-16 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<div class="px-space-xl py-space-lg flex flex-col gap-space-lg max-w-[1600px] w-full mx-auto">
+<!-- Page Header & Action Controls -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xxs min-w-0">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Tugas Saya</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default">Achmad Fauzi</span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant max-w-3xl">
+          Kelola daftar tugas personal, tenggat waktu prioritas, dan pantau progres tanggung jawab Anda di seluruh proyek Biro Sistem Informasi (BSI).
+        </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-auto shrink-0">
+<!-- View Mode Switcher -->
+<div class="flex items-center p-1 bg-surface-container rounded-xl shadow-sm">
+<button aria-pressed="true" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-secondary shadow-sm font-label-default text-label-default transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+<span>Tampilan Daftar</span>
+</button>
+<button aria-pressed="false" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-default text-label-default transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">view_kanban</span>
+<span>Tampilan Kanban</span>
+</button>
+</div>
+<!-- Add Task CTA -->
+<button class="flex items-center gap-1.5 h-9 px-space-md bg-secondary text-on-secondary hover:bg-secondary-container transition-colors rounded-xl font-body-medium text-body-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>Tambah Tugas Pribadi</span>
+</button>
+</div>
+</div>
+<!-- KPI Summary Row -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- KPI 1 -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">Total Ditugaskan</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">assignment</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">8</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tugas Aktif</span>
+</div>
+<div class="mt-2 w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">Hari Ini</span>
+<span class="material-symbols-outlined text-secondary-container text-[20px]">today</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">2</span>
+<span class="font-body-sm text-body-sm text-error font-medium">1 Mendesak</span>
+</div>
+<div class="mt-2 w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">Mendatang</span>
+<span class="material-symbols-outlined text-outline text-[20px]">upcoming</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">4</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pekan Ini &amp; Depan</span>
+</div>
+<div class="mt-2 w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-outline text-on-surface-variant h-full rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<!-- KPI 4 (Alert Highlighted) -->
+<div class="p-space-md bg-error-container/40 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-error uppercase font-bold tracking-wider">Terlambat (Overdue)</span>
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-error font-bold">2</span>
+<span class="font-body-sm text-body-sm text-error font-medium">Segera Tindak!</span>
+</div>
+<div class="mt-2 w-full bg-error-container h-1 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-on-surface-variant uppercase">Selesai Minggu Ini</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]">task_alt</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">5</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">100% On Time</span>
+</div>
+<div class="mt-2 w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+<!-- Interactive Filter & Search Bar -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<!-- Tabs Bar -->
+<div class="flex items-center justify-between border-b-0 pb-1 overflow-x-auto">
+<div class="flex items-center gap-space-xs shrink-0" role="tablist">
+<button aria-selected="true" class="px-space-md py-1.5 rounded-lg bg-surface-container text-secondary font-body-medium text-body-medium transition-all flex items-center gap-1.5" role="tab" type="button">
+<span>Semua</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary text-on-secondary font-label-default text-label-default leading-none">8</span>
+</button>
+<button aria-selected="false" class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-all flex items-center gap-1.5" role="tab" type="button">
+<span>Hari Ini</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default leading-none">2</span>
+</button>
+<button aria-selected="false" class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-all flex items-center gap-1.5" role="tab" type="button">
+<span>Mendatang</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default leading-none">4</span>
+</button>
+<button aria-selected="false" class="px-space-md py-1.5 rounded-lg text-error hover:bg-error-container/40 font-body-medium text-body-medium transition-all flex items-center gap-1.5" role="tab" type="button">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Overdue</span>
+<span class="px-1.5 py-0.2 rounded-full bg-error text-on-error font-label-default text-label-default leading-none">2</span>
+</button>
+<button aria-selected="false" class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-body-medium text-body-medium transition-all flex items-center gap-1.5" role="tab" type="button">
+<span>Selesai</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default leading-none">5</span>
+</button>
+</div>
+<div class="flex items-center gap-2 pl-space-md shrink-0">
+<label class="flex items-center gap-2 cursor-pointer select-none py-1 px-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<input checked="" class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" id="toggleSubtasks" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tampilkan Sub-task</span>
+</label>
+</div>
+</div>
+<!-- Secondary Filter Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-2">
+<div class="flex flex-wrap items-center gap-space-sm flex-1">
+<!-- Live Filter Search -->
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">filter_list</span>
+<input class="w-full h-8 pl-8 pr-space-sm bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg font-body-sm text-body-sm outline-none focus:bg-surface-container transition-all" placeholder="Cari tugas saya..." type="text"/>
+</div>
+<!-- Project Filter -->
+<div class="relative">
+<select class="h-8 pl-2.5 pr-8 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer outline-none hover:bg-surface-container transition-colors">
+<option value="all">Semua Proyek (Semua)</option>
+<option value="si-kampus">SI Kampus v3.0</option>
+<option value="portal-keu">Portal Keuangan</option>
+<option value="infra">Infrastruktur TI</option>
+<option value="web">Pemeliharaan Web</option>
+<option value="gov">Tata Kelola TI</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+<!-- Priority Filter -->
+<div class="relative">
+<select class="h-8 pl-2.5 pr-8 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer outline-none hover:bg-surface-container transition-colors">
+<option value="all">Semua Prioritas</option>
+<option value="urgent">Urgent</option>
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Sort Order -->
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Urutkan:</span>
+<div class="relative">
+<select class="h-8 pl-2 pr-7 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer outline-none hover:bg-surface-container transition-colors font-medium">
+<option>Tenggat Waktu Terdekat</option>
+<option>Prioritas Tertinggi</option>
+<option>Aktivitas Terakhir</option>
+<option>Nama Tugas (A-Z)</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN TASK LIST SECTION -->
+<div class="flex flex-col gap-space-lg">
+<!-- SECTION 1: TERLAMBAT / MEMERLUKAN TINDAKAN SEGERA -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs py-1">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-6 h-6 rounded-md bg-error-container text-error">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-bold tracking-tight">Terlambat / Memerlukan Tindakan Segera</h2>
+<span class="px-2 py-0.5 rounded-full bg-error text-on-error font-label-default text-label-default font-semibold">2</span>
+</div>
+<span class="font-body-sm text-body-sm text-error font-medium">Eskalasi Prioritas BSI</span>
+</div>
+<!-- Task Item 1 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">BSI-402</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">SI Kampus v3.0</span>
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">emergency</span> Urgent
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-error/10 text-error font-label-default text-label-default font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">alarm</span> Terlambat 1 hari (Kemarin 16:00)
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Integrasi API SSO SIAKAD dengan Akun Google Workspace Kampus
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">checklist</span> 3/4 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">attach_file</span> 4
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 5 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<!-- Progress mini bar -->
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-secondary">75%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<!-- Status Dropdown Selector -->
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container-high text-secondary font-label-default text-label-default font-semibold hover:bg-surface-container transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>In Progress</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Quick Action Options -->
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Item 2 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">INFRA-109</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Infrastruktur TI</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span> High
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-error/10 text-error font-label-default text-label-default font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">alarm</span> Terlambat (Kemarin 12:00)
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Konfigurasi DNS Server Kampus II Babarsari &amp; Routing Failover
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">checklist</span> 2/5 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">attach_file</span> 1
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 3 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-secondary">40%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container-high text-secondary font-label-default text-label-default font-semibold hover:bg-surface-container transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>In Progress</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: HARI INI -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs py-1">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-6 h-6 rounded-md bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-bold tracking-tight">Hari Ini — Kamis, 24 Okt 2024</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold">2</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tenggat Sebelum 23:59 WIB</span>
+</div>
+<!-- Task Item 3 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">BSI-415</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">SI Kampus v3.0</span>
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">emergency</span> Urgent
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-error font-label-default text-label-default font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> Hari Ini, 16:00 (Sisa 4 jam)
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Backup Database Evaluasi Dosen Online (EDOM) Semester Ganjil
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">checklist</span> 0/3 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">attach_file</span> 2
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 1 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-outline">0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>To Do</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Item 4 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">KEU-88</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Portal Keuangan</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span> High
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-default text-label-default font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> Hari Ini, 20:00 WIB
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Sinkronisasi Webhook Virtual Account Pembayaran UKT Bank Mitra
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">checklist</span> 2/5 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 4 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-secondary">40%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container-high text-secondary font-label-default text-label-default font-semibold hover:bg-surface-container transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>In Progress</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: MENDATANG (MINGGU INI & PEKAN DEPAN) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs py-1">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-6 h-6 rounded-md bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">date_range</span>
+</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-bold tracking-tight">Mendatang (Minggu Ini &amp; Pekan Depan)</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold">4</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">25 Okt – 30 Okt 2024</span>
+</div>
+<!-- Task Item 5 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">KEU-92</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Portal Keuangan</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">horizontal_rule</span> Medium
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-default text-label-default font-medium">
+                  26 Okt 2024
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Review UI/UX Modul Pembayaran Wisuda &amp; Registrasi Ulang
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">checklist</span> 1/2 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 2 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-secondary">50%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>To Do</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Item 6 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">WEB-14</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Pemeliharaan Web</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-outline font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">arrow_downward</span> Low
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-default text-label-default font-medium">
+                  28 Okt 2024
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Update Sertifikat SSL Subdomain *.upnyk.ac.id &amp; Nginx Hardening
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">checklist</span> 0/2 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 2 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-outline">0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>To Do</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Item 7 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">INFRA-112</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Infrastruktur TI</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span> High
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-default text-label-default font-medium">
+                  29 Okt 2024
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Audit Keamanan &amp; Penetrasi Port Firewall Server Babarsari
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">checklist</span> 1/4 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 3 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-secondary">25%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>To Do</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Item 8 -->
+<div class="group relative flex flex-col md:flex-row md:items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all gap-space-md">
+<div class="flex items-start md:items-center gap-space-md min-w-0 flex-1">
+<div class="pt-1 md:pt-0 shrink-0 flex items-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-secondary font-bold">GOV-51</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-surface-variant font-medium">Tata Kelola TI</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-label-default text-label-default font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span> High
+                </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-default text-label-default font-medium">
+                  30 Okt 2024
+                </span>
+</div>
+<a class="font-title-sm text-title-sm text-on-surface hover:text-secondary font-semibold transition-colors truncate" href="#">
+                Penyusunan Laporan Audit Kepatuhan Data SIAKAD ke Rektorat
+              </a>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">checklist</span> 0/4 Sub-task
+                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span> 0 Komentar
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0 border-t md:border-t-0 pt-2 md:pt-0">
+<div class="hidden lg:flex flex-col gap-1 w-28">
+<div class="flex justify-between font-label-default text-label-default text-on-surface-variant">
+<span>Progres</span>
+<span class="font-semibold text-outline">0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div class="relative">
+<button class="flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-default text-label-default font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>To Do</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-tertiary-fixed-dim hover:bg-surface-container rounded-lg transition-colors" title="Tandai Selesai" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Detail Tugas" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Opsi Lanjutan" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: BARU SELESAI (ACCORDION/COLLAPSIBLE) -->
+<details class="group bg-surface-container-low rounded-xl shadow-sm transition-all overflow-hidden" open="">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none hover:bg-surface-container transition-colors list-none">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-6 h-6 rounded-md bg-tertiary-fixed text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</span>
+<div class="flex items-center gap-2">
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Baru Selesai</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-default text-label-default font-medium">5 Tugas Minggu Ini</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Klik untuk sembunyikan</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-open:rotate-180">expand_more</span>
+</div>
+</summary>
+<div class="p-space-md pt-0 flex flex-col gap-space-xs">
+<!-- Finished Task 1 -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-space-sm bg-surface-container-lowest/80 rounded-lg shadow-sm gap-space-sm opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-outline">BSI-390</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-default text-label-default text-on-surface-variant">SI Kampus v3.0</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface line-through truncate">
+                  Patch Kerentanan SQL Injection pada API Presensi Dosen
+                </span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0">
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-tertiary-fixed-variant font-medium">
+                Selesai Kemarin
+              </span>
+<button class="p-1 text-outline hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</button>
+</div>
+</div>
+<!-- Finished Task 2 -->
+<div class="flex flex-col md:flex-row md:items-center justify-between p-space-sm bg-surface-container-lowest/80 rounded-lg shadow-sm gap-space-sm opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-code-sm text-code-sm text-outline">BSI-388</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-default text-label-default text-on-surface-variant">SI Kampus v3.0</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface line-through truncate">
+                  Migrasi Skema Tabel Mahasiswa Baru Jalur Mandiri 2024
+                </span>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md shrink-0">
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-default text-label-default text-on-tertiary-fixed-variant font-medium">
+                Selesai 22 Okt
+              </span>
+<button class="p-1 text-outline hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</button>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div></main></div></body></html>
