@@ -32,15 +32,15 @@ class User extends Authenticatable implements FilamentUser
      */
     public const ROLE_META = [
         'admin' => ['label' => 'Superadmin', 'level' => 0, 'badge' => 'bg-primary-container text-on-primary', 'icon' => 'shield-check'],
-        'project_manager' => ['label' => 'Lead Developer / PM', 'level' => 1, 'badge' => 'bg-secondary-fixed text-on-secondary-fixed', 'icon' => 'code-bracket'],
-        'team_member' => ['label' => 'Frontend & QA Engineer', 'level' => 2, 'badge' => 'bg-secondary-fixed-dim text-on-secondary-fixed-variant', 'icon' => 'globe-alt'],
+        'project-manager' => ['label' => 'Lead Developer / PM', 'level' => 1, 'badge' => 'bg-secondary-fixed text-on-secondary-fixed', 'icon' => 'code-bracket'],
+        'team-member' => ['label' => 'Frontend & QA Engineer', 'level' => 2, 'badge' => 'bg-secondary-fixed-dim text-on-secondary-fixed-variant', 'icon' => 'globe-alt'],
         'viewer' => ['label' => 'Faculty PIC / Viewer', 'level' => 3, 'badge' => 'bg-surface-container-high text-on-surface', 'icon' => 'eye'],
         'none' => ['label' => 'No Role', 'level' => 99, 'badge' => 'bg-surface-variant text-on-surface-variant', 'icon' => 'user'],
     ];
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->can('view dashboard');
+        return $this->can('dashboard.view');
     }
 
     public function initials(): string

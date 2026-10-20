@@ -239,8 +239,8 @@ class ProjectWorkspace extends Component
             'canEdit' => Gate::allows('update', $this->project),
             'canArchive' => Gate::allows('archive', $this->project),
             'canManageMembers' => Gate::allows('manageMembers', $this->project),
-            'canCreateTask' => $user->can('create tasks'),
-            'canDeleteTask' => $user->can('delete tasks'),
+            'canCreateTask' => $user->can('task.create'),
+            'canDeleteTask' => $user->can('task.delete'),
         ]);
     }
 }

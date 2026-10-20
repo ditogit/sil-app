@@ -26,7 +26,7 @@ class BoardTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         Task::factory()->create([
@@ -50,7 +50,7 @@ class BoardTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         $task = Task::factory()->create([
@@ -72,7 +72,7 @@ class BoardTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         $task = Task::factory()->create([
@@ -84,7 +84,7 @@ class BoardTest extends TestCase
         ]);
 
         $outsider = User::factory()->create();
-        $outsider->assignRole('team_member');
+        $outsider->assignRole('team-member');
 
         Livewire::actingAs($outsider)
             ->test(Board::class)
@@ -97,7 +97,7 @@ class BoardTest extends TestCase
     public function test_board_scoped_to_project_query_param(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $projectA = Project::factory()->create();
         $projectA->members()->attach($member->id);

@@ -59,7 +59,7 @@ class Projects extends Component
         $projects = Project::with(['members'])
             ->withCount(['tasks', 'tasks as done_tasks_count' => fn ($q) => $q->where('status', 'done')])
             ->when($this->tab !== 'archived', fn ($q) => $q->where('status', 'active'), fn ($q) => $q->where('status', 'archived'))
-            ->when(! $user->can('create projects'), fn ($q) => $q->whereHas('members', fn ($m) => $m->whereKey($user->id)))
+            ->when(! $user->can('project.create'), fn ($q) => $q->whereHas('members', fn ($m) => $m->whereKey($user->id)))
             ->when($this->q !== '', function ($q): void {
                 $term = '%'.mb_strtolower($this->q).'%';
                 $q->where(fn ($w) => $w->whereRaw('lower(name) like ?', [$term])->orWhereRaw('lower(description) like ?', [$term]));
@@ -73,8 +73,8 @@ class Projects extends Component
             'projects' => $projects,
             'activeCount' => Project::where('status', 'active')->count(),
             'archivedCount' => Project::where('status', 'archived')->count(),
-            'canCreate' => $user->can('create projects'),
-            'canArchive' => $user->can('archive projects'),
+            'canCreate' => $user->can('project.create'),
+            'canArchive' => $user->can('project.archive'),
         ]);
     }
 }

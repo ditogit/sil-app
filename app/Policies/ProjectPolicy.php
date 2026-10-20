@@ -9,31 +9,31 @@ class ProjectPolicy
 {
     public function view(User $user, Project $project): bool
     {
-        if (! $user->can('view projects')) {
+        if (! $user->can('project.view')) {
             return false;
         }
 
-        return $this->isMember($user, $project) || $user->can('create projects');
+        return $this->isMember($user, $project) || $user->can('project.create');
     }
 
     public function create(User $user): bool
     {
-        return $user->can('create projects');
+        return $user->can('project.create');
     }
 
     public function update(User $user, Project $project): bool
     {
-        return $user->can('edit projects');
+        return $user->can('project.update') && $this->isMember($user, $project);
     }
 
     public function archive(User $user, Project $project): bool
     {
-        return $user->can('archive projects');
+        return $user->can('project.archive') && $this->isMember($user, $project);
     }
 
     public function manageMembers(User $user, Project $project): bool
     {
-        return $user->can('manage project members');
+        return $user->can('project.manage-members') && $this->isMember($user, $project);
     }
 
     private function isMember(User $user, Project $project): bool

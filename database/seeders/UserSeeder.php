@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
                 'position' => 'Lead Backend',
                 'unit' => 'BSI-BE',
                 'campus' => 'Babarsari Campus',
-                'role' => 'project_manager',
+                'role' => 'project-manager',
                 'two_factor' => true,
                 'last_login' => now()->subMinutes(12),
             ],
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
                 'position' => 'Frontend Engineer',
                 'unit' => 'BSI-FE',
                 'campus' => 'Condongcatur Campus',
-                'role' => 'team_member',
+                'role' => 'team-member',
                 'two_factor' => true,
                 'last_login' => now()->subHours(2),
             ],
@@ -64,12 +64,12 @@ class UserSeeder extends Seeder
         ];
 
         $extra = [
-            ['Dimas Arya Pradana, S.T.', 'dev.ops@example.com', 'DevOps & Infra', 'BSI-OPS', 'Babarsari Data Center', 'project_manager', true, 60],
-            ['Budi Santoso, M.Kom.', 'qa@example.com', 'QA & Testing Lead', 'BSI-QA', 'Babarsari Campus', 'team_member', true, 1560],
-            ['Maya Anggraini, S.Ds.', 'ux@example.com', 'UI/UX Designer', 'BSI-UX', 'Information Systems Bureau', 'team_member', true, 1560],
-            ['Nadia Puspita, S.Kom.', 'nadia@example.com', 'Backend Engineer', 'BSI-BE', 'Babarsari Campus', 'team_member', false, 2880],
-            ['Fajar Nugroho, S.T.', 'fajar@example.com', 'SRE', 'BSI-OPS', 'Babarsari Data Center', 'team_member', true, 720],
-            ['Intan Permata, S.Kom.', 'intan@example.com', 'QA Engineer', 'BSI-QA', 'Babarsari Campus', 'team_member', false, 10080],
+            ['Dimas Arya Pradana, S.T.', 'dev.ops@example.com', 'DevOps & Infra', 'BSI-OPS', 'Babarsari Data Center', 'project-manager', true, 60],
+            ['Budi Santoso, M.Kom.', 'qa@example.com', 'QA & Testing Lead', 'BSI-QA', 'Babarsari Campus', 'team-member', true, 1560],
+            ['Maya Anggraini, S.Ds.', 'ux@example.com', 'UI/UX Designer', 'BSI-UX', 'Information Systems Bureau', 'team-member', true, 1560],
+            ['Nadia Puspita, S.Kom.', 'nadia@example.com', 'Backend Engineer', 'BSI-BE', 'Babarsari Campus', 'team-member', false, 2880],
+            ['Fajar Nugroho, S.T.', 'fajar@example.com', 'SRE', 'BSI-OPS', 'Babarsari Data Center', 'team-member', true, 720],
+            ['Intan Permata, S.Kom.', 'intan@example.com', 'QA Engineer', 'BSI-QA', 'Babarsari Campus', 'team-member', false, 10080],
         ];
 
         foreach ($core as $row) {

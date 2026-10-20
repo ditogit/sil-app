@@ -60,7 +60,7 @@ class Board extends Component
         $user = auth()->user();
 
         return Project::where('status', 'active')
-            ->when(! $user->can('create projects'), fn (Builder $q) => $q->whereHas('members', fn (Builder $m) => $m->whereKey($user->id)))
+            ->when(! $user->can('project.create'), fn (Builder $q) => $q->whereHas('members', fn (Builder $m) => $m->whereKey($user->id)))
             ->orderBy('name')
             ->get()
             ->filter(fn (Project $p) => Gate::allows('view', $p))
@@ -114,7 +114,7 @@ class Board extends Component
             'tags' => Task::whereIn('project_id', $scopeIds)->whereNotNull('tags')->pluck('tags')->flatten()->unique()->sort()->values(),
             'overdueCount' => $this->baseQuery($visibleIds)->overdue()->count(),
             'activeProject' => $this->project_id === 'all' ? null : Project::find($this->project_id),
-            'canCreate' => auth()->user()->can('create tasks'),
+            'canCreate' => auth()->user()->can('task.create'),
         ]);
     }
 }

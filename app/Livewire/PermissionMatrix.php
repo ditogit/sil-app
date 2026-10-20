@@ -8,6 +8,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class PermissionMatrix extends Component
 {
@@ -40,6 +41,8 @@ class PermissionMatrix extends Component
             $role->syncPermissions($names);
         }
 
+        app(PermissionRegistrar::class)->forgetCachedPermissions();
+
         AccessAuditLog::create([
             'user_id' => auth()->id(),
             'actor_id' => auth()->id(),
@@ -71,6 +74,6 @@ class PermissionMatrix extends Component
 
     private function authorizeManage(): void
     {
-        abort_unless(auth()->user()->can('manage roles'), 403);
+        abort_unless(auth()->user()->can('role.manage'), 403);
     }
 }

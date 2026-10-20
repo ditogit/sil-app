@@ -24,7 +24,7 @@ class ReportsTest extends TestCase
     public function test_member_without_report_permission_is_forbidden(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member'); // tanpa view reports
+        $member->assignRole('team-member'); // tanpa view reports
 
         $this->actingAs($member)->get('/reports')
             ->assertForbidden()
@@ -35,7 +35,7 @@ class ReportsTest extends TestCase
     public function test_reports_nav_item_hidden_without_permission(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $this->actingAs($member)->get('/dashboard')->assertOk()->assertDontSee('Reports & Analytics');
     }
@@ -84,7 +84,7 @@ class ReportsTest extends TestCase
     public function test_manager_can_export_csv(): void
     {
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
 
         $project = Project::factory()->create();
         $project->members()->attach($manager->id);
@@ -107,7 +107,7 @@ class ReportsTest extends TestCase
     public function test_member_cannot_export_csv(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member'); // tanpa export reports
+        $member->assignRole('team-member'); // tanpa export reports
 
         $this->actingAs($member)->get(route('reports.export'))->assertForbidden();
     }

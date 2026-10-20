@@ -26,7 +26,7 @@ class QuickCreateTaskTest extends TestCase
     public function test_member_can_quick_create_personal_task(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project = Project::factory()->create();
         $project->members()->attach($member->id);
 
@@ -50,7 +50,7 @@ class QuickCreateTaskTest extends TestCase
     public function test_quick_create_appears_in_my_tasks(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project = Project::factory()->create();
         $project->members()->attach($member->id);
 
@@ -83,7 +83,7 @@ class QuickCreateTaskTest extends TestCase
     public function test_parent_button_dispatches_open_event(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         Livewire::actingAs($member)
             ->test(MyTasks::class)
@@ -94,7 +94,7 @@ class QuickCreateTaskTest extends TestCase
     public function test_past_due_date_rejected(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project = Project::factory()->create();
 
         Livewire::actingAs($member)

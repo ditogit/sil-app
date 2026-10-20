@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Notifications\TaskAssigned;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
@@ -56,7 +57,7 @@ class CreateTask extends Component
 
     public function mount(): void
     {
-        abort_unless(auth()->user()->can('create tasks'), 403);
+        abort_unless(auth()->user()->can('task.create'), 403);
 
         $firstProject = Project::where('status', 'active')->orderBy('name')->first();
 
@@ -120,7 +121,22 @@ class CreateTask extends Component
             'milestone_id' => ['nullable', 'integer', 'exists:milestones,id'],
             'title' => ['required', 'string', 'max:160'],
             'description' => ['nullable', 'string', 'max:10000'],
-            'assignee_id' => ['nullable', 'integer', 'exists:users,id'],
+            'assignee_id' => [
+                'nullable', 'integer', 'exists:users,id',
+                // Assignee must be a member of the selected project.
+                function ($attribute, $value, $fail) {
+                    if ($value && $this->project_id) {
+                        $isMember = DB::table('project_user')
+                            ->where('project_id', $this->project_id)
+                            ->where('user_id', $value)
+                            ->exists();
+
+                        if (! $isMember) {
+                            $fail('The selected assignee is not a member of the chosen project.');
+                        }
+                    }
+                },
+            ],
             'priority' => ['required', 'in:low,medium,high,critical'],
             'due_date' => ['required', 'date', 'after_or_equal:today'],
             'due_time' => ['nullable', 'date_format:H:i'],
@@ -141,7 +157,7 @@ class CreateTask extends Component
 
         $user = auth()->user();
 
-        if ($this->assignee_id && (int) $this->assignee_id !== $user->id && ! $user->can('assign tasks')) {
+        if ($this->assignee_id && (int) $this->assignee_id !== $user->id && ! $user->can('task.assign')) {
             $this->addError('assignee_id', 'You may only assign tasks to yourself.');
 
             return null;

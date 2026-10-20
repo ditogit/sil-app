@@ -19,7 +19,7 @@
         <div class="flex items-center gap-space-xs overflow-x-auto pb-1">
             @foreach (['all' => 'All', 'unread' => 'Unread', 'deadline' => 'Due & SLA', 'assigned' => 'New Assignments', 'status' => 'Status Updates', 'comment' => 'Comments'] as $key => $label)
                 <button wire:click="setTab('{{ $key }}')" type="button"
-                    class="px-space-md py-1.5 rounded-lg font-body-medium text-body-medium transition-all flex items-center gap-1.5 whitespace-nowrap {{ $tab === $key ? 'bg-surface-container text-secondary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low' }}">
+                    class="cursor-pointer px-space-md py-1.5 rounded-lg font-body-medium text-body-medium transition-all flex items-center gap-1.5 whitespace-nowrap {{ $tab === $key ? 'bg-surface-container text-secondary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low' }}">
                     @if ($key === 'unread' && $counts['unread'] > 0)<span class="w-1.5 h-1.5 rounded-full bg-error"></span>@endif
                     {{ $label }}
                     <span class="px-1.5 py-0.5 rounded-full font-label-default text-label-default leading-none {{ $tab === $key ? 'bg-secondary text-on-secondary' : 'bg-surface-container text-on-surface-variant' }}">{{ $counts[$key] }}</span>

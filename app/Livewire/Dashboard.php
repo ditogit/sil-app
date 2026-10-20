@@ -212,7 +212,7 @@ class Dashboard extends Component
             'deadlines' => $deadlines,
             'workload' => $workload,
             'activities' => $this->recentActivities(),
-            'canCreateTask' => $user->can('create tasks'),
+            'canCreateTask' => $user->can('task.create'),
             'priorityFilterLabel' => match ($this->priorityFilter) {
                 'high' => 'High',
                 'critical' => 'Critical',

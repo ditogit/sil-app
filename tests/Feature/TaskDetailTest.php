@@ -30,7 +30,7 @@ class TaskDetailTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         $task = Task::factory()->create([
@@ -57,7 +57,7 @@ class TaskDetailTest extends TestCase
         [$project, $member, $task] = $this->setupTask();
 
         $outsider = User::factory()->create();
-        $outsider->assignRole('team_member');
+        $outsider->assignRole('team-member');
 
         $this->actingAs($outsider)->get("/tasks/{$task->id}")->assertForbidden();
     }
@@ -76,7 +76,7 @@ class TaskDetailTest extends TestCase
         $this->assertSame('Sudah dicek, tinggal deploy.', Comment::find($commentId)->body);
 
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
         $project->members()->attach($manager->id);
 
         Livewire::actingAs($manager)
@@ -93,7 +93,7 @@ class TaskDetailTest extends TestCase
         $comment = Comment::factory()->create(['task_id' => $task->id, 'user_id' => $member->id]);
 
         $other = User::factory()->create();
-        $other->assignRole('team_member');
+        $other->assignRole('team-member');
         $project->members()->attach($other->id);
 
         Livewire::actingAs($other)
@@ -135,7 +135,7 @@ class TaskDetailTest extends TestCase
         $attachment = Attachment::factory()->create(['task_id' => $task->id, 'user_id' => $member->id]);
 
         $other = User::factory()->create();
-        $other->assignRole('team_member');
+        $other->assignRole('team-member');
         $project->members()->attach($other->id);
 
         Livewire::actingAs($other)
@@ -144,7 +144,7 @@ class TaskDetailTest extends TestCase
             ->assertForbidden();
 
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
         $project->members()->attach($manager->id);
 
         Livewire::actingAs($manager)

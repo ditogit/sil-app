@@ -31,7 +31,7 @@ class DashboardTest extends TestCase
     public function test_dashboard_renders_with_my_tasks(): void
     {
         $member = User::factory()->create(['name' => 'Anggota Tim']);
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $project = Project::factory()->create(['created_by' => $member->id]);
         $project->members()->attach($member->id);
@@ -61,7 +61,7 @@ class DashboardTest extends TestCase
     public function test_assignee_can_advance_own_task_status(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $task = Task::factory()->create([
             'assignee_id' => $member->id,
@@ -80,10 +80,10 @@ class DashboardTest extends TestCase
     public function test_stranger_cannot_advance_others_task_status(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $other = User::factory()->create();
-        $other->assignRole('team_member');
+        $other->assignRole('team-member');
 
         $task = Task::factory()->create([
             'assignee_id' => $other->id,

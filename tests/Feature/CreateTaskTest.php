@@ -28,7 +28,7 @@ class CreateTaskTest extends TestCase
     private function member(): User
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         return $member;
     }
@@ -52,6 +52,7 @@ class CreateTaskTest extends TestCase
 
         $member = $this->member();
         $project = Project::factory()->create(['created_by' => $member->id]);
+        $project->members()->attach($member->id); // member must be in project
         $milestone = Milestone::factory()->create(['project_id' => $project->id]);
 
         $file = UploadedFile::fake()->create('spesifikasi.pdf', 100, 'application/pdf');
@@ -89,6 +90,7 @@ class CreateTaskTest extends TestCase
     {
         $member = $this->member();
         $project = Project::factory()->create(['created_by' => $member->id]);
+        $project->members()->attach($member->id);
 
         Livewire::actingAs($member)
             ->test(CreateTask::class)
@@ -123,10 +125,11 @@ class CreateTaskTest extends TestCase
     public function test_manager_can_assign_to_someone_else(): void
     {
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
 
         $member = User::factory()->create();
         $project = Project::factory()->create(['created_by' => $manager->id]);
+        $project->members()->attach([$manager->id, $member->id]); // both must be project members
 
         Livewire::actingAs($manager)
             ->test(CreateTask::class)
@@ -144,6 +147,7 @@ class CreateTaskTest extends TestCase
     {
         $member = $this->member();
         $project = Project::factory()->create(['created_by' => $member->id]);
+        $project->members()->attach($member->id);
         $otherMilestone = Milestone::factory()->create();
 
         Livewire::actingAs($member)

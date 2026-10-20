@@ -29,7 +29,7 @@ class NotificationsTest extends TestCase
     public function test_assigning_task_notifies_assignee(): void
     {
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
 
         $member = User::factory()->create();
         $project = Project::factory()->create(['created_by' => $manager->id]);
@@ -52,11 +52,11 @@ class NotificationsTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         $creator = User::factory()->create();
-        $creator->assignRole('team_member');
+        $creator->assignRole('team-member');
         $project->members()->attach($creator->id);
 
         $task = Task::factory()->create([
@@ -79,11 +79,11 @@ class NotificationsTest extends TestCase
     {
         $project = Project::factory()->create();
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         $author = User::factory()->create();
-        $author->assignRole('team_member');
+        $author->assignRole('team-member');
         $project->members()->attach($author->id);
 
         $task = Task::factory()->create([
@@ -106,7 +106,7 @@ class NotificationsTest extends TestCase
     public function test_deadline_reminder_command_notifies_and_dedupes(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         Task::factory()->create([
             'assignee_id' => $member->id,
@@ -126,7 +126,7 @@ class NotificationsTest extends TestCase
     public function test_notifications_page_tabs_and_mark_read(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $task = Task::factory()->create(['assignee_id' => $member->id, 'created_by' => $member->id]);
         $member->notify(new TaskAssigned($task, 'PM'));

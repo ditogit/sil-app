@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
                     $navItem('board', 'layouts-kanban', 'Task Board', 'board*'),
                 ],
                 'navSecondary' => array_values(array_filter([
-                    $user->can('view reports') ? $navItem('reports', 'metrics-chart-bar', 'Reports & Analytics', 'reports*') : null,
+                    $user->can('report.view') ? $navItem('reports', 'metrics-chart-bar', 'Reports & Analytics', 'reports*') : null,
                     $navItem('notifications', 'messaging-message-circle', 'Notifications', 'notifications*', $unread ?: null, 'red'),
                 ])),
                 'navAdmin' => [

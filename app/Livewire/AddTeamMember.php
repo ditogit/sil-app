@@ -29,13 +29,13 @@ class AddTeamMember extends Component
 
     public string $work_unit_id = '';
 
-    public string $role_name = 'team_member';
+    public string $role_name = 'team-member';
 
     #[On('open-add-member')]
     public function openModal(): void
     {
         $this->reset(['name', 'email', 'password', 'nip', 'position', 'campus', 'work_unit_id']);
-        $this->role_name = 'team_member';
+        $this->role_name = 'team-member';
         $this->resetValidation();
         $this->open = true;
     }
@@ -99,7 +99,7 @@ class AddTeamMember extends Component
     private function authorizeManage(): void
     {
         abort_unless(
-            auth()->user()->can('manage users') || auth()->user()->can('manage roles'),
+            auth()->user()->can('user.manage') || auth()->user()->can('role.manage'),
             403
         );
     }

@@ -14,48 +14,62 @@ class RolePermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        app(PermissionRegistrar::class)->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
-            'manage users', 'manage roles',
-            'view projects', 'create projects', 'edit projects',
-            'archive projects', 'manage project members',
-            'view tasks', 'create tasks', 'assign tasks', 'edit tasks',
-            'delete tasks', 'update task status', 'reopen tasks', 'manage all tasks',
-            'create comments', 'delete comments',
-            'upload attachments', 'delete attachments',
-            'view dashboard', 'view reports', 'export reports',
+            // Project
+            'project.view', 'project.create', 'project.update', 'project.archive', 'project.manage-members',
+            // Task
+            'task.view', 'task.create', 'task.assign', 'task.update', 'task.update-status', 'task.delete', 'task.reopen',
+            // Sub-task
+            'subtask.create', 'subtask.update',
+            // Comment
+            'comment.create', 'comment.delete-any',
+            // Attachment
+            'attachment.upload', 'attachment.delete',
+            // Dashboard & Laporan
+            'dashboard.view', 'report.view', 'report.export',
+            // Sistem
+            'user.manage', 'role.manage', 'system.configure',
         ];
 
         foreach ($permissions as $name) {
             Permission::firstOrCreate(['name' => $name, 'guard_name' => 'web']);
         }
 
+        // Admin: semua permission
         Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web'])
             ->syncPermissions(Permission::all());
 
-        Role::firstOrCreate(['name' => 'project_manager', 'guard_name' => 'web'])->syncPermissions([
-            'view projects', 'create projects', 'edit projects',
-            'archive projects', 'manage project members',
-            'view tasks', 'create tasks', 'assign tasks', 'edit tasks',
-            'delete tasks', 'update task status', 'reopen tasks', 'manage all tasks',
-            'create comments', 'delete comments',
-            'upload attachments', 'delete attachments',
-            'view dashboard', 'view reports', 'export reports',
-        ]);
+        // Project Manager
+        Role::firstOrCreate(['name' => 'project-manager', 'guard_name' => 'web'])
+            ->syncPermissions([
+                'project.view', 'project.create', 'project.update', 'project.archive', 'project.manage-members',
+                'task.view', 'task.create', 'task.assign', 'task.update', 'task.update-status',
+                'task.delete', 'task.reopen',
+                'subtask.create', 'subtask.update',
+                'comment.create', 'comment.delete-any',
+                'attachment.upload', 'attachment.delete',
+                'dashboard.view', 'report.view', 'report.export',
+            ]);
 
-        Role::firstOrCreate(['name' => 'team_member', 'guard_name' => 'web'])->syncPermissions([
-            'view projects',
-            'view tasks', 'create tasks', 'edit tasks', 'update task status',
-            'create comments',
-            'upload attachments', 'delete attachments',
-            'view dashboard',
-        ]);
+        // Team Member (TIDAK punya task.assign)
+        Role::firstOrCreate(['name' => 'team-member', 'guard_name' => 'web'])
+            ->syncPermissions([
+                'project.view',
+                'task.view', 'task.create', 'task.update', 'task.update-status',
+                'subtask.create', 'subtask.update',
+                'comment.create',
+                'attachment.upload', 'attachment.delete',
+                'dashboard.view',
+            ]);
 
-        Role::firstOrCreate(['name' => 'viewer', 'guard_name' => 'web'])->syncPermissions([
-            'view projects', 'view tasks',
-            'create comments',
-            'view dashboard', 'view reports',
-        ]);
+        // Viewer (boleh report.view & report.export)
+        Role::firstOrCreate(['name' => 'viewer', 'guard_name' => 'web'])
+            ->syncPermissions([
+                'project.view', 'task.view',
+                'comment.create',
+                'dashboard.view', 'report.view', 'report.export',
+            ]);
     }
 }

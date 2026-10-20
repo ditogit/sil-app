@@ -53,6 +53,17 @@ class ManageMember extends Component
 
         $user = User::findOrFail($this->userId);
 
+        // Protect the last admin from demotion.
+        if ($user->hasRole('admin') && $data['role_name'] !== 'admin') {
+            $remainingAdmins = User::role('admin')->count();
+
+            if ($remainingAdmins <= 1) {
+                $this->addError('role_name', 'Cannot demote the last admin. Assign the admin role to another user first.');
+
+                return;
+            }
+        }
+
         $previousRole = $user->roles->first()?->name;
         $user->syncRoles([$data['role_name']]);
 
@@ -90,7 +101,7 @@ class ManageMember extends Component
     private function authorizeManage(): void
     {
         abort_unless(
-            auth()->user()->can('manage users') || auth()->user()->can('manage roles'),
+            auth()->user()->can('user.manage') || auth()->user()->can('role.manage'),
             403
         );
     }

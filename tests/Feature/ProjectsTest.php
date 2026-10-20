@@ -28,7 +28,7 @@ class ProjectsTest extends TestCase
     private function manager(): User
     {
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
 
         return $manager;
     }
@@ -36,7 +36,7 @@ class ProjectsTest extends TestCase
     public function test_member_only_sees_own_projects(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $mine = Project::factory()->create();
         $mine->members()->attach($member->id);
@@ -82,7 +82,7 @@ class ProjectsTest extends TestCase
     public function test_member_cannot_create_project(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         Livewire::actingAs($member)
             ->test(QuickCreateProject::class)
@@ -118,7 +118,7 @@ class ProjectsTest extends TestCase
     public function test_member_cannot_archive(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project = Project::factory()->create();
         $project->members()->attach($member->id);
 
@@ -174,7 +174,7 @@ class ProjectsTest extends TestCase
     public function test_non_member_cannot_open_workspace(): void
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project = Project::factory()->create();
 
         $this->actingAs($member)->get("/projects/{$project->id}")->assertForbidden();

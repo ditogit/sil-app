@@ -25,7 +25,7 @@ class MyTasksTest extends TestCase
     private function memberInProject(Project $project): User
     {
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $project->members()->attach($member->id);
 
         return $member;
@@ -123,7 +123,7 @@ class MyTasksTest extends TestCase
     {
         $project = Project::factory()->create();
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
         $project->members()->attach($manager->id);
 
         $task = Task::factory()->done()->create([
@@ -159,7 +159,8 @@ class MyTasksTest extends TestCase
         $this->assertNotSoftDeleted($task);
 
         $manager = User::factory()->create();
-        $manager->assignRole('project_manager');
+        $manager->assignRole('project-manager');
+        $project->members()->attach($manager->id);
 
         Livewire::actingAs($manager)
             ->test(MyTasks::class)

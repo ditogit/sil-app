@@ -9,7 +9,12 @@ class AttachmentPolicy
 {
     public function delete(User $user, Attachment $attachment): bool
     {
-        return $user->can('delete attachments')
-            && ($attachment->user_id === $user->id || $user->can('manage all tasks'));
+        // Uploader can always delete their own file.
+        if ($attachment->user_id === $user->id) {
+            return true;
+        }
+
+        // Only PM and Admin (via Gate::before) can delete others' attachments.
+        return $user->can('attachment.delete') && $user->hasRole('project-manager');
     }
 }

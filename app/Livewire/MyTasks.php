@@ -176,8 +176,8 @@ class MyTasks extends Component
             'counts' => $counts,
             'groups' => $groups,
             'myProjects' => Project::where('status', 'active')->orderBy('name')->get(),
-            'canCreate' => $user->can('create tasks'),
-            'canDelete' => $user->can('delete tasks'),
+            'canCreate' => $user->can('task.create'),
+            'canDelete' => $user->can('task.delete'),
         ]);
     }
 }

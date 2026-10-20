@@ -18,11 +18,11 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         $manager = User::where('email', 'pm@example.com')->first()
-            ?? User::role('project_manager')->first()
+            ?? User::role('project-manager')->first()
             ?? User::first();
 
         $member = User::where('email', 'member@example.com')->first()
-            ?? User::role('team_member')->first()
+            ?? User::role('team-member')->first()
             ?? User::first();
 
         $viewer = User::where('email', 'viewer@example.com')->first()

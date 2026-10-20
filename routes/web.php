@@ -45,12 +45,12 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/projects', Projects::class)->name('projects.index');
     Route::get('/projects/{project}', ProjectWorkspace::class)->name('projects.show');
     Route::get('/board', Board::class)->name('board');
-    Route::get('/reports', Reports::class)->name('reports');
+    Route::get('/reports', Reports::class)->middleware('permission:report.view')->name('reports');
     Route::get('/reports/export', function (Request $request) {
         $projectId = (string) $request->query('project', 'all');
 
         $ids = Project::where('status', 'active')
-            ->when(! auth()->user()->can('create projects'), fn ($q) => $q->whereHas('members', fn ($m) => $m->whereKey(auth()->id())))
+            ->when(! auth()->user()->can('project.create'), fn ($q) => $q->whereHas('members', fn ($m) => $m->whereKey(auth()->id())))
             ->pluck('id')
             ->filter(fn (int $id) => Gate::allows('view', Project::find($id)));
 
@@ -80,13 +80,13 @@ Route::middleware('auth')->group(function (): void {
 
             fclose($out);
         }, 'task-report-'.today()->toDateString().'.csv', ['Content-Type' => 'text/csv']);
-    })->middleware('permission:export reports')->name('reports.export');
+    })->middleware('permission:report.export')->name('reports.export');
     Route::get('/notifications', NotificationCenter::class)->name('notifications');
     Route::get('/team', TeamSettings::class)->name('team');
     Route::redirect('/settings', '/team')->name('settings');
     Route::get('/team/audit/export', function () {
         abort_unless(
-            auth()->user()->can('manage users') || auth()->user()->can('manage roles'),
+            auth()->user()->can('user.manage') || auth()->user()->can('role.manage'),
             403
         );
 

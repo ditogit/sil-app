@@ -24,7 +24,7 @@ class Reports extends Component
 
     public function mount(): void
     {
-        abort_unless(auth()->user()->can('view reports'), 403);
+        abort_unless(auth()->user()->can('report.view'), 403);
     }
 
     /**
@@ -47,7 +47,7 @@ class Reports extends Component
     private function visibleProjects(): Collection
     {
         return Project::where('status', 'active')
-            ->when(! auth()->user()->can('create projects'), fn (Builder $q) => $q->whereHas('members', fn (Builder $m) => $m->whereKey(auth()->id())))
+            ->when(! auth()->user()->can('project.create'), fn (Builder $q) => $q->whereHas('members', fn (Builder $m) => $m->whereKey(auth()->id())))
             ->orderBy('name')
             ->get()
             ->filter(fn (Project $p) => Gate::allows('view', $p))
@@ -140,7 +140,7 @@ class Reports extends Component
     {
         return view('livewire.reports', array_merge($this->dataset(), [
             'projectOptions' => $this->visibleProjects(),
-            'canExport' => auth()->user()->can('export reports'),
+            'canExport' => auth()->user()->can('report.export'),
         ]));
     }
 }

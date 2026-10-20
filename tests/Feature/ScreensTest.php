@@ -19,7 +19,7 @@ class ScreensTest extends TestCase
         $this->seed(RolePermissionSeeder::class);
 
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $response = $this->actingAs($member)->get($uri);
 
@@ -50,7 +50,7 @@ class ScreensTest extends TestCase
         $this->seed(RolePermissionSeeder::class);
 
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $this->actingAs($member)->get('/settings')->assertRedirect('/team');
     }
@@ -60,7 +60,7 @@ class ScreensTest extends TestCase
         $this->seed(RolePermissionSeeder::class);
 
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
         $task = Task::factory()->create([
             'assignee_id' => $member->id,
             'created_by' => $member->id,

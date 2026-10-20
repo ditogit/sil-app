@@ -112,7 +112,7 @@ class TaskDetail extends Component
 
         if ((int) ($data['assignee_id'] ?? 0) !== (int) $this->task->assignee_id
             && (int) ($data['assignee_id'] ?? 0) !== auth()->id()
-            && ! auth()->user()->can('assign tasks')
+            && ! auth()->user()->can('task.assign')
         ) {
             $this->addError('assignee_id', 'You may only assign tasks to yourself.');
 
@@ -161,7 +161,7 @@ class TaskDetail extends Component
 
     public function addSubtask(): void
     {
-        abort_unless(auth()->user()->can('create tasks'), 403);
+        abort_unless(auth()->user()->can('task.create'), 403);
 
         $this->validate(['subtaskTitle' => ['required', 'string', 'max:160']]);
 
@@ -182,7 +182,7 @@ class TaskDetail extends Component
 
     public function sendComment(): void
     {
-        abort_unless(auth()->user()->can('create comments'), 403);
+        abort_unless(auth()->user()->can('comment.create'), 403);
 
         $this->validate(['commentBody' => ['required', 'string', 'max:5000']]);
 
@@ -217,7 +217,7 @@ class TaskDetail extends Component
 
     public function updatedUploads(): void
     {
-        abort_unless(auth()->user()->can('upload attachments'), 403);
+        abort_unless(auth()->user()->can('attachment.upload'), 403);
 
         $this->validate([
             'uploads' => ['array', 'max:5'],
@@ -291,9 +291,9 @@ class TaskDetail extends Component
             'comments' => $this->task->comments->sortByDesc('created_at'),
             'canEdit' => Gate::allows('update', $this->task),
             'canChangeStatus' => Gate::allows('updateStatus', $this->task),
-            'canAssign' => $user->can('assign tasks'),
-            'canComment' => $user->can('create comments'),
-            'canUpload' => $user->can('upload attachments'),
+            'canAssign' => $user->can('task.assign'),
+            'canComment' => $user->can('comment.create'),
+            'canUpload' => $user->can('attachment.upload'),
             'canDeleteTask' => Gate::allows('delete', $this->task),
             'milestones' => Milestone::where('project_id', $this->task->project_id)->orderBy('title')->get(),
             'users' => User::orderBy('name')->get(),

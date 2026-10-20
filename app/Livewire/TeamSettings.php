@@ -37,11 +37,11 @@ class TeamSettings extends Component
      * @var array<int, array{label: string, permission: string}>
      */
     public const MATRIX_COLUMNS = [
-        ['label' => 'Create Project', 'permission' => 'create projects'],
-        ['label' => 'Edit Sprint', 'permission' => 'edit tasks'],
-        ['label' => 'Assign Task', 'permission' => 'assign tasks'],
-        ['label' => 'Deploy Staging', 'permission' => 'edit projects'],
-        ['label' => 'Audit Log', 'permission' => 'manage roles'],
+        ['label' => 'Create Project', 'permission' => 'project.create'],
+        ['label' => 'Manage Members', 'permission' => 'project.manage-members'],
+        ['label' => 'Assign Task', 'permission' => 'task.assign'],
+        ['label' => 'Manage Roles', 'permission' => 'role.manage'],
+        ['label' => 'Manage Users', 'permission' => 'user.manage'],
     ];
 
     public function updating(string $property): void
@@ -108,6 +108,14 @@ class TeamSettings extends Component
         $this->authorizeManage();
 
         $user = User::findOrFail($userId);
+
+        // Protect the last admin from being suspended.
+        if ($user->hasRole('admin') && User::role('admin')->count() <= 1) {
+            session()->flash('error', 'Cannot suspend the last admin account.');
+
+            return;
+        }
+
         $user->update(['status' => 'suspended']);
 
         $this->log($user, 'suspended', "Access suspended for {$user->name}.");
@@ -177,7 +185,7 @@ class TeamSettings extends Component
 
     private function canManage(): bool
     {
-        return auth()->user()->can('manage users') || auth()->user()->can('manage roles');
+        return auth()->user()->can('user.manage') || auth()->user()->can('role.manage');
     }
 
     private function authorizeManage(): void

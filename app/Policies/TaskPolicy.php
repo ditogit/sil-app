@@ -12,42 +12,50 @@ class TaskPolicy
         return $task->project->members()->whereKey($user->id)->exists();
     }
 
-    public function create(User $user): bool
-    {
-        return $user->can('create tasks');
-    }
-
     public function view(User $user, Task $task): bool
     {
-        return $user->can('view tasks') && $this->isMember($user, $task);
+        return $user->can('task.view') && $this->isMember($user, $task);
+    }
+
+    public function create(User $user): bool
+    {
+        return $user->can('task.create');
+    }
+
+    public function assign(User $user, Task $task): bool
+    {
+        return $user->can('task.assign') && $this->isMember($user, $task);
     }
 
     public function update(User $user, Task $task): bool
     {
-        return $this->isMember($user, $task)
-            && $user->can('edit tasks')
-            && ($task->created_by === $user->id
-                || $task->assignee_id === $user->id
-                || $user->can('manage all tasks'));
+        if (! $this->isMember($user, $task) || ! $user->can('task.update')) {
+            return false;
+        }
+
+        // Team Member may only edit tasks assigned to them.
+        return $user->hasRole('project-manager')
+            || $task->assignee_id === $user->id;
     }
 
     public function updateStatus(User $user, Task $task): bool
     {
-        if (! $this->isMember($user, $task) || ! $user->can('update task status')) {
+        // Admin already bypassed via Gate::before.
+        if (! $this->isMember($user, $task)) {
             return false;
         }
 
-        // A done task can only be reopened by holders of reopen tasks.
+        // Task Done hanya boleh diubah yang punya task.reopen (PM/Admin)
         if ($task->status === 'done') {
-            return $user->can('reopen tasks');
+            return $user->can('task.reopen');
         }
 
-        // Only the assignee or a PM (manage all tasks).
-        return $task->assignee_id === $user->id || $user->can('manage all tasks');
+        return $user->hasRole('project-manager')
+            || ($user->can('task.update-status') && $task->assignee_id === $user->id);
     }
 
     public function delete(User $user, Task $task): bool
     {
-        return $user->can('delete tasks');
+        return $user->can('task.delete') && $this->isMember($user, $task);
     }
 }

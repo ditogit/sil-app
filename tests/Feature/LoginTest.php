@@ -29,7 +29,7 @@ class LoginTest extends TestCase
     {
         $this->seed(RolePermissionSeeder::class);
         $member = User::factory()->create(['email' => 'member@example.com']);
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $this->app['env'] = 'local';
 
@@ -42,7 +42,7 @@ class LoginTest extends TestCase
     {
         $this->seed(RolePermissionSeeder::class);
         $member = User::factory()->create();
-        $member->assignRole('team_member');
+        $member->assignRole('team-member');
 
         $this->post('/login', ['email' => $member->email, 'password' => 'password'])
             ->assertRedirect('/dashboard');
