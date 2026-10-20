@@ -6,6 +6,7 @@ use App\Models\AccessAuditLog;
 use App\Models\User;
 use App\Models\WorkUnit;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -47,7 +48,7 @@ class AddTeamMember extends Component
 
     public function save(): void
     {
-        $this->authorizeManage();
+        $this->authorizeInvite();
 
         $data = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -59,6 +60,12 @@ class AddTeamMember extends Component
             'work_unit_id' => ['nullable', 'integer', 'exists:work_units,id'],
             'role_name' => ['required', 'string', 'exists:roles,name'],
         ]);
+
+        if (! $this->canManageRoles() && $data['role_name'] === 'admin') {
+            $this->addError('role_name', 'You are not allowed to assign the admin role.');
+
+            return;
+        }
 
         $user = User::create([
             'name' => $data['name'],
@@ -92,14 +99,37 @@ class AddTeamMember extends Component
     {
         return view('livewire.add-team-member', [
             'units' => WorkUnit::orderBy('name')->get(),
-            'roles' => Role::orderBy('name')->get(),
+            'roles' => $this->assignableRoles(),
         ]);
     }
 
-    private function authorizeManage(): void
+    /**
+     * Roles the actor is allowed to assign when provisioning a new account.
+     *
+     * @return Collection<int, Role>
+     */
+    private function assignableRoles(): Collection
+    {
+        $roles = Role::orderBy('name')->get();
+
+        if ($this->canManageRoles()) {
+            return $roles;
+        }
+
+        return $roles->reject(fn (Role $role): bool => $role->name === 'admin')->values();
+    }
+
+    private function canManageRoles(): bool
+    {
+        return auth()->user()->can('role.manage') || auth()->user()->can('user.manage');
+    }
+
+    private function authorizeInvite(): void
     {
         abort_unless(
-            auth()->user()->can('user.manage') || auth()->user()->can('role.manage'),
+            auth()->user()->can('user.invite')
+                || auth()->user()->can('user.manage')
+                || auth()->user()->can('role.manage'),
             403
         );
     }

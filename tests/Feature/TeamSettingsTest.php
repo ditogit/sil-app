@@ -35,22 +35,30 @@ class TeamSettingsTest extends TestCase
     }
 
     #[Test]
-    public function member_can_open_the_settings_screen(): void
+    public function admin_can_open_the_team_settings_screen(): void
     {
-        $member = $this->userWithRole('team-member', ['name' => 'Rizky Pratama']);
+        $admin = $this->userWithRole('admin', ['name' => 'Rizky Pratama']);
 
-        $this->actingAs($member)->get('/team')
+        $this->actingAs($admin)->get('/team')
             ->assertOk()
             ->assertSee('Team Settings')
             ->assertSee('Rizky Pratama');
     }
 
     #[Test]
-    public function settings_path_redirects_to_team(): void
+    public function member_cannot_open_the_team_settings_screen(): void
     {
         $member = $this->userWithRole('team-member');
 
-        $this->actingAs($member)->get('/settings')->assertRedirect('/team');
+        $this->actingAs($member)->get('/team')->assertForbidden();
+    }
+
+    #[Test]
+    public function viewer_cannot_open_the_team_settings_screen(): void
+    {
+        $viewer = $this->userWithRole('viewer');
+
+        $this->actingAs($viewer)->get('/team')->assertForbidden();
     }
 
     #[Test]
@@ -129,6 +137,95 @@ class TeamSettingsTest extends TestCase
 
         $this->assertDatabaseHas('users', ['email' => 'new.person@upnyk.ac.id', 'work_unit_id' => $unit->id]);
         $this->assertDatabaseHas('access_audit_logs', ['event' => 'member_added']);
+    }
+
+    #[Test]
+    public function project_manager_can_open_the_team_screen_and_see_the_add_member_action(): void
+    {
+        $manager = $this->userWithRole('project-manager');
+
+        $this->actingAs($manager)->get('/team')
+            ->assertOk()
+            ->assertSee('Add Team Member')
+            ->assertDontSee('Export Access Log')
+            ->assertDontSee('Security Audit Log');
+    }
+
+    #[Test]
+    public function project_manager_can_add_a_team_member(): void
+    {
+        $manager = $this->userWithRole('project-manager');
+
+        Livewire::actingAs($manager)
+            ->test(AddTeamMember::class)
+            ->call('openModal')
+            ->set('name', 'New Engineer')
+            ->set('email', 'new.engineer@upnyk.ac.id')
+            ->set('password', 'secret-password')
+            ->set('role_name', 'team-member')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $this->assertDatabaseHas('users', ['email' => 'new.engineer@upnyk.ac.id']);
+
+        $created = User::where('email', 'new.engineer@upnyk.ac.id')->firstOrFail();
+
+        $this->assertTrue($created->hasRole('team-member'));
+    }
+
+    #[Test]
+    public function project_manager_cannot_assign_the_admin_role(): void
+    {
+        $manager = $this->userWithRole('project-manager');
+
+        Livewire::actingAs($manager)
+            ->test(AddTeamMember::class)
+            ->call('openModal')
+            ->set('name', 'Sneaky Admin')
+            ->set('email', 'sneaky.admin@upnyk.ac.id')
+            ->set('password', 'secret-password')
+            ->set('role_name', 'admin')
+            ->call('save')
+            ->assertHasErrors('role_name');
+
+        $this->assertDatabaseMissing('users', ['email' => 'sneaky.admin@upnyk.ac.id']);
+    }
+
+    #[Test]
+    public function project_manager_cannot_suspend_a_member(): void
+    {
+        $target = $this->userWithRole('team-member', ['status' => 'active']);
+        $manager = $this->userWithRole('project-manager');
+
+        Livewire::actingAs($manager)
+            ->test(TeamSettings::class)
+            ->call('suspend', $target->id)
+            ->assertForbidden();
+
+        $this->assertSame('active', $target->refresh()->status);
+    }
+
+    #[Test]
+    public function project_manager_cannot_change_member_permissions(): void
+    {
+        $target = $this->userWithRole('team-member');
+        $manager = $this->userWithRole('project-manager');
+
+        Livewire::actingAs($manager)
+            ->test(TeamSettings::class)
+            ->call('openManageMember', $target->id)
+            ->assertForbidden();
+    }
+
+    #[Test]
+    public function project_manager_cannot_open_the_audit_log_tab(): void
+    {
+        $manager = $this->userWithRole('project-manager');
+
+        Livewire::actingAs($manager)
+            ->test(TeamSettings::class)
+            ->call('setTab', 'audit')
+            ->assertForbidden();
     }
 
     #[Test]

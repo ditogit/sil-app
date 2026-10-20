@@ -43,6 +43,8 @@ $statusTone = ['ok' => 'text-on-tertiary-container', 'warning' => 'text-error', 
                     <x-heroicon-o-shield-check class="w-[18px] h-[18px] text-on-surface-variant" />
                     <span>Permission Matrix</span>
                 </button>
+                @endif
+                @if ($canInvite)
                 <button wire:click="openAddMember" class="inline-flex items-center gap-space-xs h-9 px-4 rounded-xl bg-primary-container text-on-primary hover:bg-primary text-body-medium font-body-medium transition-colors shadow-md shadow-primary-container/20 cursor-pointer" type="button">
                     <x-heroicon-o-user-plus class="w-[18px] h-[18px]" />
                     <span>Add Team Member</span>
@@ -153,10 +155,12 @@ $statusTone = ['ok' => 'text-on-tertiary-container', 'warning' => 'text-error', 
                         <span>Work Unit &amp; Faculty Groups</span>
                         <span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-code-sm text-code-sm">{{ $units->count() }} Units</span>
                     </button>
+                    @if ($canManage)
                     <button wire:click="setTab('audit')" class="flex items-center gap-space-sm px-space-md py-3 font-body-medium text-body-medium transition-colors cursor-pointer {{ $tab === 'audit' ? 'text-secondary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-secondary' : 'text-on-surface-variant hover:text-on-surface' }}" type="button">
                         <x-heroicon-o-clock class="w-[18px] h-[18px]" />
                         <span>Security Audit Log</span>
                     </button>
+                    @endif
                 </div>
                 <div class="flex items-center gap-space-xs pb-2 lg:pb-0">
                     <span class="font-code-sm text-code-sm text-outline">Last Sync: {{ $lastSync ? \Illuminate\Support\Carbon::parse($lastSync)->format('H:i') . ' WIB' : '-' }}</span>
@@ -301,9 +305,11 @@ $statusTone = ['ok' => 'text-on-tertiary-container', 'warning' => 'text-error', 
                                         Approve
                                     </button>
                                     @endif
+                                    @if ($canManage)
                                     <button wire:click="openManageMember({{ $member->id }})" class="px-3 py-1.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-secondary font-body-medium text-body-medium font-semibold transition-colors cursor-pointer" type="button">
                                         Manage Permissions
                                     </button>
+                                    @endif
                                     @if ($canManage)
                                     <div x-data="{ open: false }" class="relative">
                                         <button x-on:click="open = ! open" class="p-1.5 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer" type="button">
@@ -575,8 +581,11 @@ $statusTone = ['ok' => 'text-on-tertiary-container', 'warning' => 'text-error', 
         </div>
     </div>
 
-    @if ($canManage)
+    @if ($canInvite)
     <livewire:add-team-member />
+    @endif
+
+    @if ($canManage)
     <livewire:manage-member />
     <livewire:permission-matrix />
     @endif

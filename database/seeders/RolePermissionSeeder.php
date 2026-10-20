@@ -30,7 +30,7 @@ class RolePermissionSeeder extends Seeder
             // Dashboard & Laporan
             'dashboard.view', 'report.view', 'report.export',
             // Sistem
-            'user.manage', 'role.manage', 'system.configure',
+            'user.manage', 'user.invite', 'role.manage', 'system.configure',
         ];
 
         foreach ($permissions as $name) {
@@ -51,6 +51,7 @@ class RolePermissionSeeder extends Seeder
                 'comment.create', 'comment.delete-any',
                 'attachment.upload', 'attachment.delete',
                 'dashboard.view', 'report.view', 'report.export',
+                'user.invite',
             ]);
 
         // Team Member (TIDAK punya task.assign)

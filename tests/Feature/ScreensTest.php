@@ -41,18 +41,25 @@ class ScreensTest extends TestCase
             'proyek' => ['/projects', 'Projects'],
             'board' => ['/board', 'Task Board'],
             'notifikasi' => ['/notifications', 'Notifications'],
-            'tim' => ['/team', 'Team Settings'],
+            'pengaturan' => ['/settings', 'Settings'],
         ];
     }
 
-    public function test_settings_redirects_to_team(): void
+    public function test_team_settings_screen_is_only_for_administrators(): void
     {
         $this->seed(RolePermissionSeeder::class);
+
+        $admin = User::factory()->create();
+        $admin->assignRole('admin');
+
+        $this->actingAs($admin)->get('/team')
+            ->assertOk()
+            ->assertSee('Team Settings');
 
         $member = User::factory()->create();
         $member->assignRole('team-member');
 
-        $this->actingAs($member)->get('/settings')->assertRedirect('/team');
+        $this->actingAs($member)->get('/team')->assertForbidden();
     }
 
     public function test_task_detail_mock_renders(): void

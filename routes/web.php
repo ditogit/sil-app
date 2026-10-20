@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SessionController;
+use App\Livewire\AccountSettings;
 use App\Livewire\Board;
 use App\Livewire\CreateTask;
 use App\Livewire\Dashboard;
@@ -82,8 +83,8 @@ Route::middleware('auth')->group(function (): void {
         }, 'task-report-'.today()->toDateString().'.csv', ['Content-Type' => 'text/csv']);
     })->middleware('permission:report.export')->name('reports.export');
     Route::get('/notifications', NotificationCenter::class)->name('notifications');
-    Route::get('/team', TeamSettings::class)->name('team');
-    Route::redirect('/settings', '/team')->name('settings');
+    Route::get('/settings', AccountSettings::class)->name('settings');
+    Route::get('/team', TeamSettings::class)->middleware('can:manage-team')->name('team');
     Route::get('/team/audit/export', function () {
         abort_unless(
             auth()->user()->can('user.manage') || auth()->user()->can('role.manage'),

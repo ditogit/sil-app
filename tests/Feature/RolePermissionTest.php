@@ -408,7 +408,7 @@ class RolePermissionTest extends TestCase
             'comment.create', 'comment.delete-any',
             'attachment.upload', 'attachment.delete',
             'dashboard.view', 'report.view', 'report.export',
-            'user.manage', 'role.manage', 'system.configure',
+            'user.manage', 'user.invite', 'role.manage', 'system.configure',
         ];
 
         $this->assertSame(count($expectedPermissions), Permission::count());

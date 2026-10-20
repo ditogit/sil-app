@@ -53,6 +53,10 @@ class TeamSettings extends Component
 
     public function setTab(string $tab): void
     {
+        if ($tab === 'audit') {
+            $this->authorizeManage();
+        }
+
         $this->tab = $tab;
         $this->resetPage();
     }
@@ -72,7 +76,7 @@ class TeamSettings extends Component
 
     public function openAddMember(): void
     {
-        $this->authorizeManage();
+        $this->authorizeInvite();
 
         $this->dispatch('open-add-member');
     }
@@ -138,12 +142,14 @@ class TeamSettings extends Component
     public function render(): View
     {
         $canManage = $this->canManage();
+        $canInvite = $this->canInvite();
 
         $totalAccounts = User::count();
         $twoFactorCount = User::whereNotNull('two_factor_confirmed_at')->count();
 
         return view('screens.pengaturan_tim', [
             'canManage' => $canManage,
+            'canInvite' => $canInvite,
             'members' => $this->members(),
             'pendingMembers' => User::where('status', 'pending_2fa')->orderBy('name')->get(),
             'roles' => Role::with('permissions')->withCount(['users'])->orderBy('name')->get(),
@@ -151,7 +157,9 @@ class TeamSettings extends Component
             'units' => WorkUnit::withCount('users')->orderBy('name')->get(),
             'unitOptions' => WorkUnit::orderBy('name')->get(),
             'roleOptions' => Role::orderBy('name')->get(),
-            'auditLogs' => AccessAuditLog::with(['user', 'actor'])->latest()->paginate($this->perPage, pageName: 'auditPage'),
+            'auditLogs' => $canManage
+                ? AccessAuditLog::with(['user', 'actor'])->latest()->paginate($this->perPage, pageName: 'auditPage')
+                : new \Illuminate\Pagination\LengthAwarePaginator([], 0, $this->perPage, 1, ['path' => request()->url(), 'pageName' => 'auditPage']),
             'lastSync' => AccessAuditLog::max('created_at'),
             'matrixColumns' => self::MATRIX_COLUMNS,
             'metrics' => [
@@ -188,9 +196,19 @@ class TeamSettings extends Component
         return auth()->user()->can('user.manage') || auth()->user()->can('role.manage');
     }
 
+    private function canInvite(): bool
+    {
+        return auth()->user()->can('user.invite') || $this->canManage();
+    }
+
     private function authorizeManage(): void
     {
         abort_unless($this->canManage(), 403);
+    }
+
+    private function authorizeInvite(): void
+    {
+        abort_unless($this->canInvite(), 403);
     }
 
     private function log(User $subject, string $event, string $description): void

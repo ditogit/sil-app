@@ -28,6 +28,7 @@
                 </div>
 
                 <div class="flex-1 overflow-y-auto">
+                    @if (count($navMain) > 0)
                     <div class="px-space-lg pt-space-md pb-space-xs">
                         <span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Main Menu</span>
                     </div>
@@ -44,6 +45,9 @@
                         </a>
                         @endforeach
                     </nav>
+                    @endif
+
+                    @if (count($navSecondary) > 0)
                     <div class="px-space-md pt-space-md">
                         <nav class="flex flex-col gap-0.5">
                             @foreach ($navSecondary as $item)
@@ -59,6 +63,9 @@
                             @endforeach
                         </nav>
                     </div>
+                    @endif
+
+                    @if (count($navAdmin) > 0)
                     <div class="px-space-lg pt-space-md pb-space-xs">
                         <span class="font-label-uppercase text-label-uppercase text-outline uppercase tracking-wider">Administration</span>
                     </div>
@@ -72,6 +79,7 @@
                         </a>
                         @endforeach
                     </nav>
+                    @endif
                 </div>
             </div>
             <div class="p-space-md bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] m-space-sm rounded-xl">
@@ -123,7 +131,7 @@
                             <a href="{{ route('settings') }}" class="block px-space-md py-2 font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface">Settings</a>
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="w-full text-left px-space-md py-2 font-body-sm text-body-sm text-error hover:bg-error-container/30">Log out</button>
+                                <button type="submit" class="w-full text-left px-space-md py-2 font-body-sm text-body-sm text-error hover:bg-error-container/30 pointer-cursor">Log out</button>
                             </form>
                         </div>
                     </div>
